@@ -15,34 +15,50 @@ A tailored lead generation and brand expansion strategy targeting home service c
 
 ## 5 Digital Marketing Materials
 
-### 📄 Digital Material 1: High-Converting SEO Landing Page
-**Campaign Focus**: PPC/SEO landing page targeting trades search terms (e.g., "ServiceTitan call center", "plumbing answering service").
+### 📄 Digital Material 1: High-Converting SEO Landing Page [FULLY IMPLEMENTED]
+**Campaign Focus**: High-fidelity PPC/SEO landing page targeting trades search terms (e.g., "ServiceTitan call center", "plumbing answering service").
+**Implementation Location**: [Landing Page.html](file:///Users/almeidajose/Documents/C/contractorincharge/Landing%20page/Landing%20Page.html) (Embedded interactively inside the visual marketing dashboard).
 
-#### 🛠️ Wireframe Structure & Copy Layout
+#### 🎨 Design System & Visual Aesthetics
+- **Aesthetic**: Warm paper theme (`#f6f2ec` background) with near-black teal typography (`#0e1a1a`) and brand highlights in teal (`#0f9a98`) and gold (`#f5c542`).
+- **Typography**: Responsive scales utilizing **Geist** and **Archivo** Google Fonts to deliver a premium, editorial feel that stands out from default generic themes.
+- **Micro-Animations**: Hover transitions, custom scale effects on CTAs, and a pulsing animation on the "Inbound Call" card.
+
+#### 🛠️ Coded Structure & Layout
+- **Navigation Bar**:
+  - Contains responsive anchors, custom SVG brand marks, a call-to-action button, and call number: `(512) 555-0142`.
 - **Hero Section**:
-  - **Super-headline**: *FOR GROWING HVAC, PLUMBING & ELECTRICAL CONTRACTORS*
-  - **Main Headline**: Stop Missing Trade Calls & Start Scaling to $2M+ Without Hiring a Single Internal Employee
-  - **Subheadline**: 24/7 call answering, dispatch, and professional bookkeeping built exclusively for home service trades. Stop bleeding revenue to your competitors and start operating like a CEO.
-  - **CTA Button**: `Get Your Free ROI Analysis` / `Schedule a Strategy Call`
-  - **Visual Asset**: Left-aligned high-converting copy, right-aligned image of a service technician smiling next to a dispatcher dashboard showing "100% Calls Booked".
+  - **Super-headline**: `✓ For growing HVAC, Plumbing & Electrical contractors`
+  - **Main Headline**: Stop missing trade calls & **start scaling to $2M+** without hiring a **single internal employee**.
+  - **Subheadline**: 24/7 call answering, dispatch, and professional bookkeeping built exclusively for home service trades. Stop bleeding revenue to your competitors — and start operating like a CEO.
+  - **CTAs**: `Get Your Free ROI Analysis` / `Schedule a Strategy Call`
+  - **Visual Elements**: Right-aligned overlay containing a live dispatch dashboard mock, a pulsing floating call notification card, and a technician badge.
+- **Plugs Directly Into Your FSM Logo Strip**:
+  - Showcases logos for *ServiceTitan*, *Housecall Pro*, *Jobber*, *QuickBooks*, *FieldEdge*, and *ServiceFusion*.
 - **The "Leaky Bucket" Pain Section**:
-  - **Headline**: Every missed call is a $350 ticket directly to your competitor.
-  - **Body**: 62% of home service callers hang up if they get a voicemail. When they hang up, they don't leave a message—they just call the next business on Google. We plug that leak.
+  - **Headline**: Every missed call is a **$350 ticket** directly to your competitor.
+  - **Body**: 62% of home service callers hang up if they get a voicemail. They don’t leave a message — they just dial the next business on Google. Every after-hours leak, every weekend ring-through, every “we’ll call you back Monday” is revenue you already paid Google to acquire. We plug that leak.
+  - **Stats Cards Layout**:
+    - **62%** hang up and dial competitor.
+    - **$350** average ticket value lost.
+    - **4s** average live answer time.
 - **The Service Stack Grid (3 Pillars)**:
   - **1. 24/7 Live Agent Answering & Booking**: Dedicated trade CSRs trained on your brand, booking directly in ServiceTitan, Housecall Pro, or your FSM.
   - **2. Full-Service Bookkeeping**: Accrual-based accounting, QuickBooks Online migrations, job costing, and daily reconciliation.
   - **3. FSM & Software Optimization**: We align your FSM and pricebook so your invoicing and financial reports sync flawlessly.
 - **The ROI Comparison Table**:
-  | Operational Challenge | Without Contractor in Charge | With Contractor in Charge |
-  | :--- | :--- | :--- |
-  | **Call Answer Rate** | ~40% (Voicemails, missed leads) | **100% (24/7/365 live answers)** |
-  | **Bookkeeper Cost** | $45k - $60k salary + benefits | **Fraction of the cost, 0 overhead** |
-  | **FSM Integrations** | Disconnected, manual data entry | **Flawless ServiceTitan & QuickBooks sync** |
-  | **Financial Reports** | Arrives weeks after month-end | **Daily profit scorecards** |
-- **Interactive ROI Calculator Callout**:
-  - *"See how much revenue you are losing each month from missed calls and late bookkeeping."*
+  - A beautiful custom HSL-styled table showing challenges like call answer rate, bookkeeper salary, and after-hours triage.
+- **Interactive JavaScript ROI Calculator**:
+  - **Inputs**: *Inbound calls per week* (20-500), *Avg ticket value* ($100-$1500), *% of calls currently missed* (5%-70%).
+  - **Real-Time Output Calculations**:
+    - *Calls missed per month* = `calls * 4.33 * missed%`
+    - *Revenue leaking per month* = `missedCalls * avgTicket * 0.62`
+    - *Annualized leak* = `monthlyLeak * 12`
+    - *Recoverable with CIC* = `annualizedLeak * 0.85`
 - **Social Proof / Testimonial**:
-  - *"Contractor in Charge returned 3 hours a day to my life. Our revenue grew by 23% in 6 months because we stopped missing after-hours emergency calls."* — *Justin M., Good Guys Heating & Air*
+  - Gold star ratings next to a blockquote from Justin M. of Good Guys Heating & Air.
+- **Footer Section**:
+  - Custom SVG brand mark, links, and copyright notices.
 
 ---
 

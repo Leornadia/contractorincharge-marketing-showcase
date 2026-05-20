@@ -1286,81 +1286,8 @@
                     <div class="browser-address">https://contractorincharge.com/live-answering</div>
                 </div>
 
-                <!-- Actual Simulated Landing Page -->
-                <div class="lp-header">
-                    <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="lp-logo">
-                    <div class="lp-nav-links">
-                        <div>24/7 Calls</div>
-                        <div>Trade Bookkeeping</div>
-                        <div>ServiceTitan Sync</div>
-                        <div>ROI Calculator</div>
-                    </div>
-                </div>
-
-                <div class="lp-hero">
-                    <div class="lp-hero-text">
-                        <h4>For Growing Trade Contractors</h4>
-                        <h1>Stop Missing Trade Calls & Start Scaling to $2M+</h1>
-                        <p>24/7 call answering, dispatch, and QuickBooks-certified bookkeeping built exclusively for HVAC, plumbing, and electrical contractors. Capture every single lead and operate like a CEO.</p>
-                        <button class="lp-btn-primary">Schedule Discovery Call</button>
-                    </div>
-                    <div class="lp-hero-card">
-                        <h3>Schedule Free ROI Analysis</h3>
-                        <div class="lp-form-group">
-                            <label>YOUR NAME</label>
-                            <input type="text" class="lp-input" placeholder="Justin Wise">
-                        </div>
-                        <div class="lp-form-group">
-                            <label>TRADE TYPE</label>
-                            <input type="text" class="lp-input" placeholder="e.g. Plumbing & HVAC">
-                        </div>
-                        <div class="lp-form-group">
-                            <label>MONTHLY REVENUE</label>
-                            <input type="text" class="lp-input" placeholder="e.g. $85,000">
-                        </div>
-                        <button class="lp-btn-primary" style="width:100%; margin-top:10px;">Calculate My Savings</button>
-                    </div>
-                </div>
-
-                <!-- ROI Calculator Element -->
-                <div class="calculator-container" id="calculator">
-                    <div class="calc-left">
-                        <h2>Leaking Revenue Calculator</h2>
-                        <p>Industry research shows that up to 62% of trade leads go to voicemail. 6 out of 10 homeowners won't leave a message—they just call your competitor. Slide the meters below to see how much money Contractor in Charge captures for your business.</p>
-                        
-                        <div class="slider-group">
-                            <div class="slider-header">
-                                <span>Monthly Inbound Leads</span>
-                                <span id="leadsVal">150</span>
-                            </div>
-                            <input type="range" class="calc-slider" id="leadsSlider" min="20" max="500" value="150" oninput="calculateROI()">
-                        </div>
-
-                        <div class="slider-group">
-                            <div class="slider-header">
-                                <span>Average Ticket Value ($)</span>
-                                <span id="ticketVal">$350</span>
-                            </div>
-                            <input type="range" class="calc-slider" id="ticketSlider" min="150" max="1500" value="350" step="50" oninput="calculateROI()">
-                        </div>
-                    </div>
-
-                    <div class="calc-right">
-                        <div class="calc-stat-label">RECOVERED MONTHLY REVENUE</div>
-                        <div class="calc-stat-value" id="roiVal">$27,667</div>
-                        
-                        <div class="calc-details-grid">
-                            <div class="calc-detail-box">
-                                <h4 id="missedVal">93</h4>
-                                <p>Missed Calls (62%)</p>
-                            </div>
-                            <div class="calc-detail-box">
-                                <h4 id="bookedVal">79</h4>
-                                <p>Jobs Booked (85%)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Actual Coded High-Fidelity Landing Page Embed -->
+                <iframe src="Landing%20page/Landing%20Page.html" style="width: 100%; height: 800px; border: none; display: block; background: #f6f2ec;"></iframe>
             </div>
         </section>
 
@@ -1750,7 +1677,10 @@
 
         // Interactive ROI Calculator Code
         function calculateROI() {
-            const leads = parseInt(document.getElementById('leadsSlider').value);
+            const leadsSlider = document.getElementById('leadsSlider');
+            if (!leadsSlider) return; // Prevent errors if sliders are not in the DOM
+
+            const leads = parseInt(leadsSlider.value);
             const ticket = parseInt(document.getElementById('ticketSlider').value);
 
             document.getElementById('leadsVal').innerText = leads;

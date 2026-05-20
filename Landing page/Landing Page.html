@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contractor in Charge — 24/7 Trade Call Answering, Dispatch & Bookkeeping</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2ec;          /* warm paper */
+    --bg-2: #efe8dc;        /* warm card */
+    --ink: #0e1a1a;         /* near-black teal */
+    --ink-2: #2a3838;
+    --muted: #6c7878;
+    --line: rgba(14,26,26,0.12);
+    --line-2: rgba(14,26,26,0.08);
+    --teal: #0f9a98;        /* brand teal */
+    --teal-deep: #0b6f6e;
+    --teal-ink: #06403f;
+    --gold: #f5c542;        /* brand gold */
+    --gold-deep: #d9a513;
+    --danger: #b8311e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: 'Geist', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  h1, h2, h3, h4 { font-family: 'Archivo', sans-serif; font-weight: 800; letter-spacing: -0.02em; margin: 0; color: var(--ink); }
+  h1 { font-size: clamp(40px, 5.4vw, 76px); line-height: 0.98; letter-spacing: -0.035em; }
+  h2 { font-size: clamp(32px, 3.8vw, 54px); line-height: 1.02; letter-spacing: -0.03em; }
+  h3 { font-size: 22px; line-height: 1.15; }
+  p { margin: 0; }
+  a { color: inherit; }
+  .mono { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ============ NAV ============ */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(246,242,236,0.85);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--line-2);
+  }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 32px; max-width: 1240px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand .mark { width: 38px; height: 38px; display: grid; place-items: center; }
+  .brand .wordmark { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+  .brand .wordmark span { color: var(--teal-deep); }
+  nav .links { display: flex; gap: 28px; align-items: center; }
+  nav .links a { font-size: 14px; text-decoration: none; color: var(--ink-2); }
+  nav .links a:hover { color: var(--teal-deep); }
+  nav .phone { font-family: 'Geist Mono', monospace; font-size: 13px; color: var(--ink); }
+  nav .phone strong { color: var(--ink); font-weight: 600; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .15s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--bg);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 8px 24px -10px rgba(14,26,26,0.6);
+  }
+  .btn-primary:hover { transform: translateY(-1px); background: #000; }
+  .btn-primary .arrow { width: 16px; height: 16px; }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--ink);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 10px 22px -10px rgba(217,165,19,0.7);
+    border-color: var(--gold-deep);
+  }
+  .btn-gold:hover { background: #ffd24a; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { background: var(--bg-2); }
+
+  /* ============ HERO ============ */
+  .hero { padding: 56px 0 80px; position: relative; overflow: hidden; }
+  .hero .grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .super {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 7px 12px 7px 8px;
+    border-radius: 999px;
+    background: rgba(15,154,152,0.10);
+    color: var(--teal-deep);
+    font-family: 'Geist Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .super .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--teal); display: grid; place-items: center; color: white; font-size: 11px; }
+  .hero h1 .hl { background: linear-gradient(transparent 62%, rgba(245,197,66,0.55) 62%, rgba(245,197,66,0.55) 92%, transparent 92%); padding: 0 4px; }
+  .hero h1 .ink { color: var(--teal-deep); }
+  .hero .sub { font-size: 19px; color: var(--ink-2); max-width: 580px; margin-top: 22px; }
+  .hero .ctas { display: flex; gap: 12px; align-items: center; margin-top: 32px; flex-wrap: wrap; }
+  .hero .ctas .meta { font-size: 13px; color: var(--muted); margin-left: 8px; }
+  .hero .trust { display: flex; align-items: center; gap: 28px; margin-top: 40px; flex-wrap: wrap; }
+  .hero .trust .item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); }
+  .hero .trust .item .ck { width: 18px; height: 18px; border-radius: 50%; background: var(--teal); color: white; display: grid; place-items: center; font-size: 12px; flex-shrink: 0; }
+
+  /* Hero right: dashboard mock */
+  .visual {
+    position: relative;
+    aspect-ratio: 1 / 1.04;
+    width: 100%;
+    max-width: 560px;
+    justify-self: end;
+  }
+  .photo {
+    position: absolute;
+    inset: 0 30px 28% 0;
+    border-radius: 22px;
+    background:
+      linear-gradient(140deg, rgba(11,111,110,0.0), rgba(11,111,110,0.5)),
+      repeating-linear-gradient(45deg, #e9dfce 0 18px, #e3d7c0 18px 36px);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    display: grid;
+    place-items: end;
+  }
+  .photo .label {
+    margin: 14px;
+    background: rgba(14,26,26,0.7);
+    color: rgba(255,255,255,0.85);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+  }
+  .photo .badge-tech {
+    position: absolute; top: 18px; left: 18px;
+    background: rgba(246,242,236,0.92);
+    border-radius: 10px;
+    padding: 8px 10px;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px;
+  }
+  .photo .badge-tech .pin { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; box-shadow: 0 0 0 4px rgba(15,154,152,0.25); }
+  .dashboard {
+    position: absolute;
+    right: 0; bottom: 0;
+    width: 78%;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 30px 60px -30px rgba(14,26,26,0.35), 0 6px 18px -8px rgba(14,26,26,0.2);
+    overflow: hidden;
+  }
+  .dash-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .dash-head .dots { display: flex; gap: 5px; }
+  .dash-head .dots span { width: 9px; height: 9px; border-radius: 50%; background: #e2dccf; }
+  .dash-head .url { font-family: 'Geist Mono', monospace; font-size: 10.5px; color: var(--muted); }
+  .dash-body { padding: 16px; }
+  .dash-stat {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 10px 0;
+  }
+  .dash-stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Geist Mono', monospace; }
+  .dash-stat .v { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+  .dash-stat .v.green { color: var(--teal-deep); }
+  .bar-row { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 12px; }
+  .bar-row .name { width: 70px; color: var(--ink-2); }
+  .bar-row .bar { flex: 1; height: 8px; background: #f0eadd; border-radius: 4px; overflow: hidden; }
+  .bar-row .bar > div { height: 100%; background: var(--teal); border-radius: 4px; }
+  .bar-row .num { width: 36px; text-align: right; font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--ink-2); }
+  .pill-100 {
+    margin-top: 12px;
+    background: linear-gradient(180deg, #0fa3a1, #0b6f6e);
+    color: white;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .pill-100 .big { font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.02em; }
+  .pill-100 .lbl { font-size: 11px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Geist Mono', monospace; }
+
+  /* floating call card */
+  .call-card {
+    position: absolute;
+    left: -22px; bottom: 22%;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 20px 40px -20px rgba(14,26,26,0.4);
+    display: flex; gap: 12px; align-items: center;
+    min-width: 240px;
+  }
+  .call-card .ring {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--gold);
+    display: grid; place-items: center;
+    color: var(--ink);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(245,197,66,0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(245,197,66,0); }
+  }
+  .call-card .name { font-weight: 600; font-size: 14px; }
+  .call-card .sub { font-size: 11.5px; color: var(--muted); }
+
+  /* logo strip */
+  .strip {
+    border-top: 1px solid var(--line-2);
+    border-bottom: 1px solid var(--line-2);
+    background: var(--bg-2);
+  }
+  .strip .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; padding: 22px 32px;
+    flex-wrap: wrap;
+  }
+  .strip .lbl { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .strip .logos { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .strip .logos div { font-family: 'Archivo', sans-serif; font-weight: 700; font-size: 18px; color: var(--ink-2); opacity: 0.85; letter-spacing: -0.02em; }
+  .strip .logos div em { font-style: normal; color: var(--teal-deep); }
+
+  /* ============ LEAKY BUCKET ============ */
+  .leak { padding: 110px 0 90px; }
+  .leak .grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .leak .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--danger); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+  .leak .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--danger); }
+  .leak h2 .strike { color: var(--danger); }
+  .leak h2 .money { background: var(--ink); color: var(--gold); padding: 2px 12px; border-radius: 8px; display: inline-block; font-family: 'Archivo'; }
+  .leak p.body { font-size: 19px; color: var(--ink-2); margin-top: 22px; max-width: 540px; }
+
+  .bucket {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 460px;
+    justify-self: end;
+  }
+  .bucket .stat-card {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 20px 40px -20px rgba(14,26,26,0.25);
+  }
+  .bucket .stat-card .big { font-family: 'Archivo', sans-serif; font-size: 64px; font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; }
+  .bucket .stat-card .lbl { font-size: 13px; color: var(--muted); margin-top: 10px; max-width: 200px; }
+  .bucket .s1 { left: 0; top: 0; }
+  .bucket .s1 .big { color: var(--danger); }
+  .bucket .s2 { right: 0; top: 30%; background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .bucket .s2 .big { color: var(--gold); }
+  .bucket .s2 .lbl { color: rgba(246,242,236,0.7); }
+  .bucket .s3 { left: 12%; bottom: 0; }
+  .bucket .s3 .big { color: var(--teal-deep); }
+  .drip {
+    position: absolute;
+    right: 12%; top: 18%;
+    width: 4px; height: 30px;
+    background: linear-gradient(180deg, var(--danger), transparent);
+    border-radius: 4px;
+  }
+
+  /* ============ PILLARS ============ */
+  .pillars { padding: 110px 0; background: var(--ink); color: var(--bg); }
+  .pillars .head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
+  .pillars h2 { color: var(--bg); max-width: 720px; }
+  .pillars .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .pillars .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+  .pillars .lede { color: rgba(246,242,236,0.7); max-width: 380px; font-size: 16px; }
+  .pillars .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(246,242,236,0.12); border: 1px solid rgba(246,242,236,0.12); border-radius: 24px; overflow: hidden; }
+  .pillar { background: var(--ink); padding: 36px 32px; display: flex; flex-direction: column; gap: 18px; min-height: 380px; }
+  .pillar .num { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.1em; }
+  .pillar h3 { color: var(--bg); font-size: 26px; line-height: 1.1; }
+  .pillar p { color: rgba(246,242,236,0.7); font-size: 15px; flex: 1; }
+  .pillar .icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: linear-gradient(180deg, rgba(15,154,152,0.25), rgba(15,154,152,0.05));
+    border: 1px solid rgba(15,154,152,0.45);
+    display: grid; place-items: center; color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .pillar:nth-child(2) .icon { color: var(--gold); border-color: rgba(245,197,66,0.45); background: linear-gradient(180deg, rgba(245,197,66,0.2), rgba(245,197,66,0.04)); }
+  .pillar:nth-child(3) .icon { color: #b6d4d3; }
+  .pillar .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pillar .tag {
+    font-family: 'Geist Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.05em;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgba(246,242,236,0.07);
+    border: 1px solid rgba(246,242,236,0.12);
+    color: rgba(246,242,236,0.8);
+    text-transform: uppercase;
+  }
+
+  /* ============ ROI TABLE ============ */
+  .compare { padding: 110px 0; }
+  .compare .head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  .compare .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 14px; }
+  .compare h2 .ink { color: var(--teal-deep); }
+  .compare-table {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: white;
+    box-shadow: 0 30px 60px -40px rgba(14,26,26,0.3);
+  }
+  .compare-table .thead {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.1fr;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-table .thead > div {
+    padding: 22px 24px;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .compare-table .thead .h-them { color: var(--muted); }
+  .compare-table .thead .h-us {
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .compare-table .thead .h-us .mark-mini {
+    width: 22px; height: 22px; display: grid; place-items: center;
+  }
+  .compare-table .row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.1fr;
+    border-top: 1px solid var(--line-2);
+  }
+  .compare-table .row:first-of-type { border-top: 0; }
+  .compare-table .cell { padding: 22px 24px; font-size: 15px; }
+  .compare-table .cell.label {
+    font-weight: 600; color: var(--ink);
+    background: linear-gradient(90deg, rgba(15,154,152,0.05), transparent);
+  }
+  .compare-table .cell.them { color: var(--muted); display: flex; align-items: center; gap: 10px; }
+  .compare-table .cell.them .x { color: var(--danger); font-weight: 700; }
+  .compare-table .cell.us {
+    background: rgba(15,154,152,0.06);
+    color: var(--ink);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 10px;
+    border-left: 1px solid var(--line-2);
+  }
+  .compare-table .cell.us .ck { width: 18px; height: 18px; border-radius: 50%; background: var(--teal); color: white; display: grid; place-items: center; flex-shrink: 0; }
+
+  /* ============ ROI CALCULATOR ============ */
+  .calc { padding: 110px 0; background: var(--bg-2); border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
+  .calc .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .calc .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .calc .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--teal-deep); }
+  .calc p.lede { font-size: 18px; color: var(--ink-2); margin-top: 18px; max-width: 460px; }
+  .calc .note { margin-top: 22px; font-size: 13px; color: var(--muted); }
+
+  .calc-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 30px 60px -40px rgba(14,26,26,0.3);
+  }
+  .field { margin-bottom: 24px; }
+  .field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 14px; color: var(--ink-2); margin-bottom: 10px; }
+  .field label .val { font-family: 'Geist Mono', monospace; font-size: 13px; color: var(--ink); font-weight: 600; }
+  .field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 4px; background: #e2dccf; border-radius: 4px; outline: none; }
+  .field input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--ink); cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px var(--ink), 0 6px 12px -4px rgba(14,26,26,0.4);
+  }
+  .field input[type=range]::-moz-range-thumb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--ink); cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 0 0 1px var(--ink), 0 6px 12px -4px rgba(14,26,26,0.4);
+  }
+  .results {
+    margin-top: 28px;
+    border-top: 1px dashed var(--line);
+    padding-top: 24px;
+  }
+  .results .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .results .row .v { font-family: 'Geist Mono', monospace; color: var(--ink); font-weight: 600; }
+  .results .total {
+    margin-top: 16px;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .results .total .lbl { font-family: 'Geist Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(246,242,236,0.7); }
+  .results .total .lbl strong { color: var(--gold); display: block; margin-top: 4px; font-family: 'Archivo'; font-size: 14px; letter-spacing: -0.01em; text-transform: none; }
+  .results .total .v { font-family: 'Archivo'; font-weight: 900; font-size: 38px; letter-spacing: -0.03em; color: var(--gold); }
+
+  /* ============ TESTIMONIAL ============ */
+  .testimonial { padding: 110px 0; }
+  .testimonial .card {
+    background: linear-gradient(135deg, #0b6f6e, #06403f);
+    color: var(--bg);
+    border-radius: 28px;
+    padding: 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonial .card::before {
+    content: "";
+    position: absolute;
+    inset: -50% -10% auto auto;
+    width: 60%; aspect-ratio: 1;
+    background: radial-gradient(circle at center, rgba(245,197,66,0.18), transparent 60%);
+  }
+  .testimonial .quote-mark { font-family: 'Archivo'; font-size: 120px; line-height: 0.6; color: var(--gold); }
+  .testimonial blockquote {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    font-size: clamp(26px, 2.6vw, 38px);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 18px 0 32px;
+    max-width: 880px;
+  }
+  .testimonial blockquote .hi { color: var(--gold); }
+  .testimonial .who { display: flex; align-items: center; gap: 16px; }
+  .testimonial .who .avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: linear-gradient(135deg, #f5c542, #d9a513);
+    color: var(--ink);
+    display: grid; place-items: center;
+    font-family: 'Archivo'; font-weight: 800; font-size: 18px;
+  }
+  .testimonial .who .name { font-weight: 600; font-size: 15px; }
+  .testimonial .who .role { font-size: 13px; color: rgba(246,242,236,0.65); margin-top: 2px; }
+
+  /* ============ CTA FOOTER ============ */
+  .cta-final { padding: 100px 0 60px; text-align: center; }
+  .cta-final h2 { max-width: 880px; margin: 0 auto; }
+  .cta-final h2 .hl { background: linear-gradient(transparent 62%, rgba(245,197,66,0.55) 62%, rgba(245,197,66,0.55) 92%, transparent 92%); padding: 0 6px; }
+  .cta-final p { margin: 22px auto 0; max-width: 560px; font-size: 18px; color: var(--ink-2); }
+  .cta-final .ctas { display: flex; gap: 12px; justify-content: center; margin-top: 36px; flex-wrap: wrap; }
+
+  footer { border-top: 1px solid var(--line-2); padding: 36px 0 40px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  footer .small { font-size: 12px; color: var(--muted); font-family: 'Geist Mono', monospace; letter-spacing: 0.05em; }
+  footer .links { display: flex; gap: 24px; }
+  footer .links a { font-size: 13px; color: var(--ink-2); text-decoration: none; }
+  footer .links a:hover { color: var(--teal-deep); }
+
+  /* responsive */
+  @media (max-width: 900px) {
+    .hero .grid, .leak .grid, .calc .grid { grid-template-columns: 1fr; gap: 56px; }
+    .pillars .grid3, .compare-table .thead, .compare-table .row { grid-template-columns: 1fr; }
+    .compare-table .cell.us { border-left: 0; border-top: 1px solid var(--line-2); }
+    .visual { margin: 0 auto; }
+    nav .links { display: none; }
+    .testimonial .card { padding: 36px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="top">
+  <div class="row">
+    <a class="brand" href="#">
+      <span class="mark" aria-hidden="true">
+        <!-- Reconstructed brand mark: teal swoosh + gold figure -->
+        <svg viewBox="0 0 48 48" width="38" height="38" fill="none">
+          <path d="M6 18 C 16 8, 32 8, 42 18" stroke="#0f9a98" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <path d="M6 30 C 16 40, 32 40, 42 30" stroke="#0f9a98" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <circle cx="24" cy="20" r="2.6" fill="#f5c542"/>
+          <path d="M24 22.4 L24 29 M20.4 26 L24 23.4 L27.6 26 M21.5 33 L24 29 L26.5 33" stroke="#f5c542" stroke-width="2.1" stroke-linecap="round" fill="none"/>
+        </svg>
+      </span>
+      <span class="wordmark">Contractor<span>InCharge</span></span>
+    </a>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#compare">Why Us</a>
+      <a href="#calculator">ROI Calculator</a>
+      <a href="#testimonial">Results</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span class="phone">CALL <strong>(512) 555&#8209;0142</strong></span>
+      <a class="btn btn-primary" href="#cta">
+        Free ROI Analysis
+        <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="super">
+          <span class="dot">✓</span>
+          For growing HVAC, Plumbing &amp; Electrical contractors
+        </div>
+        <h1>
+          Stop missing trade calls &amp; <span class="ink">start scaling to $2M+</span> without hiring a <span class="hl">single internal employee</span>.
+        </h1>
+        <p class="sub">
+          24/7 call answering, dispatch, and professional bookkeeping built exclusively for home service trades. Stop bleeding revenue to your competitors &mdash; and start operating like a CEO.
+        </p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="#cta">
+            Get Your Free ROI Analysis
+            <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#cta">Schedule a Strategy Call</a>
+          <span class="meta">15&nbsp;min · no obligation</span>
+        </div>
+        <div class="trust">
+          <div class="item"><span class="ck">✓</span> ServiceTitan certified</div>
+          <div class="item"><span class="ck">✓</span> Housecall Pro partner</div>
+          <div class="item"><span class="ck">✓</span> QuickBooks ProAdvisors</div>
+        </div>
+      </div>
+
+      <!-- VISUAL -->
+      <div class="visual">
+        <div class="photo" aria-label="Service technician on the job">
+          <div class="badge-tech">
+            <span class="pin"></span>
+            <div>
+              <div style="font-weight:600">Marco D. &middot; HVAC Tech</div>
+              <div style="font-size:10.5px; color:var(--muted)">Job #4821 &middot; Booked 9:42 AM</div>
+            </div>
+          </div>
+          <div class="label">// drop in: smiling tech photo</div>
+        </div>
+
+        <div class="call-card">
+          <div class="ring">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="name">Inbound call · 11:47 PM</div>
+            <div class="sub">Answered in 4 seconds &middot; Booked</div>
+          </div>
+        </div>
+
+        <div class="dashboard">
+          <div class="dash-head">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <div class="url">dispatch.cic.app / today</div>
+          </div>
+          <div class="dash-body">
+            <div class="dash-stat">
+              <div>
+                <div class="label">Calls answered today</div>
+                <div class="v">142 <span style="font-size:13px;color:var(--teal-deep);font-family:'Geist Mono';font-weight:500;">+18%</span></div>
+              </div>
+            </div>
+            <div style="margin: 6px 0 10px;">
+              <div class="bar-row"><div class="name">After-hrs</div><div class="bar"><div style="width:96%"></div></div><div class="num">96%</div></div>
+              <div class="bar-row"><div class="name">Weekend</div><div class="bar"><div style="width:88%"></div></div><div class="num">88%</div></div>
+              <div class="bar-row"><div class="name">Holiday</div><div class="bar"><div style="width:100%; background: var(--gold);"></div></div><div class="num">100%</div></div>
+            </div>
+            <div class="pill-100">
+              <div>
+                <div class="lbl">Calls booked</div>
+                <div class="big">100%</div>
+              </div>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRIP ============ -->
+<div class="strip">
+  <div class="wrap">
+    <span class="lbl">Plugs directly into your FSM</span>
+    <div class="logos">
+      <div>Service<em>Titan</em></div>
+      <div>Housecall <em>Pro</em></div>
+      <div>Jobber</div>
+      <div><em>Quick</em>Books</div>
+      <div>FieldEdge</div>
+      <div>Service<em>Fusion</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LEAKY BUCKET ============ -->
+<section class="leak">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">The Leaky Bucket</div>
+        <h2>
+          Every missed call is a <span class="money">$350 ticket</span> directly to your competitor.
+        </h2>
+        <p class="body">
+          62% of home service callers hang up if they get a voicemail. They don&rsquo;t leave a message &mdash; they just dial the next business on Google. Every after&#8209;hours leak, every weekend ring&#8209;through, every &ldquo;we&rsquo;ll call you back Monday&rdquo; is revenue you already paid Google to acquire. We plug that leak.
+        </p>
+      </div>
+      <div class="bucket">
+        <div class="drip"></div>
+        <div class="stat-card s1">
+          <div class="big">62%</div>
+          <div class="lbl">of callers hang up and dial your competitor when they hit voicemail.</div>
+        </div>
+        <div class="stat-card s2">
+          <div class="big">$350</div>
+          <div class="lbl">average ticket value lost on every unanswered inbound call.</div>
+        </div>
+        <div class="stat-card s3">
+          <div class="big">4s</div>
+          <div class="lbl">our average answer time, 24/7/365 &mdash; including holidays.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="pillars" id="services">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">The Service Stack</div>
+        <h2>Three pillars that let you run the business instead of being run by it.</h2>
+      </div>
+      <p class="lede">Each pillar is staffed by people trained exclusively on the home service trades &mdash; not a generic answering service, not a generic accountant.</p>
+    </div>
+
+    <div class="grid3">
+      <div class="pillar">
+        <div class="num">01 / Front Office</div>
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>24/7 Live Agent Answering &amp; Booking</h3>
+        <p>Dedicated trade CSRs trained on your brand, your pricing, and your service area &mdash; booking jobs directly into your FSM in real time. Every call answered in under 8 seconds, day or night.</p>
+        <div class="tags">
+          <span class="tag">Live agents</span>
+          <span class="tag">Real-time booking</span>
+          <span class="tag">After hours</span>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="num">02 / Back Office</div>
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 3h18v18H3z M3 9h18 M9 21V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Full&#8209;Service Trade Bookkeeping</h3>
+        <p>Accrual-based accounting, QuickBooks Online migrations, job costing, and daily reconciliation done by ProAdvisors who understand WIP, retainage, and material invoicing in the trades.</p>
+        <div class="tags">
+          <span class="tag">Accrual</span>
+          <span class="tag">Job costing</span>
+          <span class="tag">Daily recon</span>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="num">03 / Operations</div>
+        <div class="icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>
+        </div>
+        <h3>FSM &amp; Pricebook Optimization</h3>
+        <p>We align your FSM and pricebook so invoicing, payroll, and financial reports sync flawlessly. No more disconnected systems, manual exports, or month-end surprises.</p>
+        <div class="tags">
+          <span class="tag">ServiceTitan</span>
+          <span class="tag">QuickBooks sync</span>
+          <span class="tag">Pricebook</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARE TABLE ============ -->
+<section class="compare" id="compare">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">The math is brutal</div>
+      <h2>What changes the day you bring on <span class="ink">Contractor in Charge</span>.</h2>
+    </div>
+
+    <div class="compare-table">
+      <div class="thead">
+        <div>Operational Challenge</div>
+        <div class="h-them">Without Us</div>
+        <div class="h-us">
+          <span class="mark-mini">
+            <svg viewBox="0 0 48 48" width="22" height="22" fill="none">
+              <path d="M6 18 C 16 8, 32 8, 42 18" stroke="#0f9a98" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <path d="M6 30 C 16 40, 32 40, 42 30" stroke="#0f9a98" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+              <circle cx="24" cy="20" r="2.6" fill="#f5c542"/>
+              <path d="M24 22.4 L24 29 M20.4 26 L24 23.4 L27.6 26" stroke="#f5c542" stroke-width="2.1" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+          With Contractor in Charge
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="cell label">Call answer rate</div>
+        <div class="cell them"><span class="x">×</span> ~40% &mdash; voicemails, missed leads</div>
+        <div class="cell us"><span class="ck">✓</span> 100% live answers, 24/7/365</div>
+      </div>
+      <div class="row">
+        <div class="cell label">Bookkeeper cost</div>
+        <div class="cell them"><span class="x">×</span> $45K&ndash;$60K salary + benefits + PTO</div>
+        <div class="cell us"><span class="ck">✓</span> A fraction of the cost. Zero overhead.</div>
+      </div>
+      <div class="row">
+        <div class="cell label">FSM integrations</div>
+        <div class="cell them"><span class="x">×</span> Disconnected. Manual data entry.</div>
+        <div class="cell us"><span class="ck">✓</span> Flawless ServiceTitan ↔ QuickBooks sync</div>
+      </div>
+      <div class="row">
+        <div class="cell label">Financial reports</div>
+        <div class="cell them"><span class="x">×</span> Arrives weeks after month&#8209;end</div>
+        <div class="cell us"><span class="ck">✓</span> Daily profit scorecards in your inbox</div>
+      </div>
+      <div class="row">
+        <div class="cell label">After&#8209;hours emergencies</div>
+        <div class="cell them"><span class="x">×</span> Rolls to voicemail. Lost to competitor.</div>
+        <div class="cell us"><span class="ck">✓</span> Live triage &amp; dispatch in under 8 seconds</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROI CALCULATOR ============ -->
+<section class="calc" id="calculator">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Interactive ROI</div>
+        <h2>See how much revenue you&rsquo;re losing every month.</h2>
+        <p class="lede">Slide your numbers. We&rsquo;ll show you what missed calls and late bookkeeping are quietly costing your shop &mdash; before you ever pick up the phone.</p>
+        <p class="note">Numbers are estimates based on industry benchmarks (62% voicemail abandonment, $350 avg ticket).</p>
+        <div style="margin-top: 28px;">
+          <a class="btn btn-gold" href="#cta">
+            Get the full ROI report
+            <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="calc-card">
+        <div class="field">
+          <label>Inbound calls per week <span class="val" id="callsVal">120</span></label>
+          <input type="range" id="calls" min="20" max="500" value="120" step="5" />
+        </div>
+        <div class="field">
+          <label>Avg ticket value <span class="val" id="ticketVal">$350</span></label>
+          <input type="range" id="ticket" min="100" max="1500" value="350" step="10" />
+        </div>
+        <div class="field">
+          <label>% of calls currently missed <span class="val" id="missedVal">35%</span></label>
+          <input type="range" id="missed" min="5" max="70" value="35" step="1" />
+        </div>
+
+        <div class="results">
+          <div class="row"><span>Calls missed / month</span><span class="v" id="missedCount">182</span></div>
+          <div class="row"><span>Revenue leaking / month</span><span class="v" id="leakMonth">$63,700</span></div>
+          <div class="row"><span>Annualized leak</span><span class="v" id="leakYear">$764,400</span></div>
+
+          <div class="total">
+            <div class="lbl">Recoverable with CIC<strong>Per year, conservatively</strong></div>
+            <div class="v" id="recover">$649,740</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section class="testimonial" id="testimonial">
+  <div class="wrap">
+    <div class="card">
+      <div class="quote-mark">&ldquo;</div>
+      <blockquote>
+        Contractor in Charge returned <span class="hi">3 hours a day</span> to my life. Our revenue grew <span class="hi">23% in 6 months</span> because we stopped missing after&#8209;hours emergency calls.
+      </blockquote>
+      <div class="who">
+        <div class="avatar">JM</div>
+        <div>
+          <div class="name">Justin M.</div>
+          <div class="role">Owner &middot; Good Guys Heating &amp; Air</div>
+        </div>
+        <div style="margin-left:auto; display:flex; gap:4px; color: var(--gold); font-size: 20px;">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta-final" id="cta">
+  <div class="wrap">
+    <h2>Plug the leak. <span class="hl">Scale the shop.</span></h2>
+    <p>Book a 15&#8209;minute strategy call. We&rsquo;ll audit your missed&#8209;call rate and bookkeeping stack &mdash; and send you a custom ROI report whether you hire us or not.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#cta">
+        Get Your Free ROI Analysis
+        <svg class="arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#cta">Or call (512) 555&#8209;0142</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="28" height="28" fill="none">
+          <path d="M6 18 C 16 8, 32 8, 42 18" stroke="#0f9a98" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <path d="M6 30 C 16 40, 32 40, 42 30" stroke="#0f9a98" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <circle cx="24" cy="20" r="2.6" fill="#f5c542"/>
+          <path d="M24 22.4 L24 29 M20.4 26 L24 23.4 L27.6 26" stroke="#f5c542" stroke-width="2.1" stroke-linecap="round" fill="none"/>
+        </svg>
+      </span>
+      <span class="small">© 2026 Contractor in Charge · Built for the trades</span>
+    </div>
+    <div class="links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ROI calculator
+  const calls = document.getElementById('calls');
+  const ticket = document.getElementById('ticket');
+  const missed = document.getElementById('missed');
+
+  const callsVal = document.getElementById('callsVal');
+  const ticketVal = document.getElementById('ticketVal');
+  const missedVal = document.getElementById('missedVal');
+
+  const missedCount = document.getElementById('missedCount');
+  const leakMonth = document.getElementById('leakMonth');
+  const leakYear = document.getElementById('leakYear');
+  const recover = document.getElementById('recover');
+
+  const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+  const fmtN = n => Math.round(n).toLocaleString('en-US');
+
+  function update() {
+    const c = +calls.value;
+    const t = +ticket.value;
+    const m = +missed.value / 100;
+
+    const monthlyCalls = c * 4.33;
+    const missedM = monthlyCalls * m;
+    const leakM = missedM * t * 0.62; // 62% of missed callers convert with competitor
+    const leakY = leakM * 12;
+    const rec = leakY * 0.85; // we recover ~85%
+
+    callsVal.textContent = c;
+    ticketVal.textContent = '$' + t;
+    missedVal.textContent = (+missed.value) + '%';
+
+    missedCount.textContent = fmtN(missedM);
+    leakMonth.textContent = fmt(leakM);
+    leakYear.textContent = fmt(leakY);
+    recover.textContent = fmt(rec);
+  }
+
+  [calls, ticket, missed].forEach(el => el.addEventListener('input', update));
+  update();
+</script>
+</body>
+</html>
