@@ -507,6 +507,41 @@
     nav .links { display: none; }
     .testimonial .card { padding: 36px 28px; }
   }
+
+  /* Mobile (≤ 768px) */
+  @media (max-width: 768px) {
+    :root { --page-pad: 20px; }
+    nav .row { padding: 0 var(--page-pad); gap: 12px; }
+    nav .phone { display: none; }
+    nav .btn-primary { font-size: 13px; padding: 8px 14px; }
+    .hero { padding: 56px 0 48px; }
+    h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+    .hero .sub { font-size: 16px; }
+    .leak-stat-grid { grid-template-columns: 1fr 1fr; }
+    .stats-bar { flex-wrap: wrap; gap: 20px; }
+    .stats-bar .stat { min-width: 40%; }
+    .cta-final h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
+    .cta-final .ctas { flex-direction: column; align-items: center; }
+    .cta-final .ctas .btn { width: 100%; max-width: 320px; text-align: center; }
+    footer .wrap { flex-direction: column; text-align: center; }
+    footer .links { justify-content: center; }
+    .pillars .grid3 { gap: 16px; }
+    .section-header { margin-bottom: 32px; }
+    .section-title { font-size: clamp(1.5rem, 5vw, 2rem); }
+    .testimonial .stars { font-size: 1rem; }
+    .calc .grid { gap: 32px; }
+    .calc-form { padding: 24px 16px; }
+  }
+
+  /* Extra small (≤ 480px) */
+  @media (max-width: 480px) {
+    .leak-stat-grid { grid-template-columns: 1fr; }
+    .hero .trust { flex-direction: column; gap: 8px; }
+    .hero .ctas .meta { display: block; margin-top: 8px; }
+    .stats-bar .stat { min-width: 100%; }
+    h1 { font-size: 1.5rem; }
+    nav .brand img { height: 30px; }
+  }
 </style>
 </head>
 <body>

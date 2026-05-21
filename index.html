@@ -1773,9 +1773,292 @@
             height: 100vh !important;
             border-radius: 0 !important;
         }
+
+        /* =====================================================
+           RESPONSIVE / MOBILE MEDIA QUERIES
+           ===================================================== */
+
+        /* Sidebar overlay backdrop (shown on mobile when sidebar is open) */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.45);
+            z-index: 99;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        /* Tablet breakpoint (≤ 1024px) */
+        @media (max-width: 1024px) {
+            .workspace-header {
+                padding: 16px 24px;
+            }
+            .tab-panel {
+                padding: 24px;
+            }
+            .branding-pill span {
+                display: none;
+            }
+            .lp-hero {
+                grid-template-columns: 1fr;
+                padding: 48px 24px;
+            }
+            .calculator-container {
+                grid-template-columns: 1fr;
+                padding: 40px 24px;
+            }
+        }
+
+        /* Mobile breakpoint (≤ 768px) */
+        @media (max-width: 768px) {
+
+            /* Body layout: remove fixed margin since sidebar will be overlay */
+            body {
+                display: block;
+            }
+
+            /* Sidebar: hide off-screen by default, slides in as overlay */
+            .sidebar {
+                transform: translateX(-260px);
+                z-index: 200;
+                box-shadow: 4px 0 24px rgba(15, 23, 42, 0.15);
+            }
+
+            /* When sidebar is toggled open on mobile */
+            body.mobile-sidebar-open .sidebar {
+                transform: translateX(0);
+            }
+            body.mobile-sidebar-open .sidebar-overlay {
+                display: block;
+            }
+
+            /* Sidebar-hidden state on mobile: keep it hidden */
+            body.sidebar-hidden .sidebar {
+                transform: translateX(-260px);
+            }
+
+            /* Main content: always full-width on mobile */
+            .main-content {
+                margin-left: 0 !important;
+                width: 100%;
+            }
+
+            /* Header bar */
+            .workspace-header {
+                padding: 12px 16px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .workspace-title-area h1 {
+                font-size: 1.1rem;
+            }
+            .workspace-title-area p {
+                font-size: 0.75rem;
+            }
+
+            /* Hide color branding pill on mobile */
+            .branding-pill {
+                display: none;
+            }
+
+            /* Tab panel padding */
+            .tab-panel {
+                padding: 16px;
+            }
+
+            /* Card grid: single column */
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            /* Alert block: stack icon + content */
+            .alert-block {
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px;
+            }
+
+            /* Landing page hero: single column, smaller padding */
+            .lp-hero {
+                grid-template-columns: 1fr;
+                padding: 32px 16px;
+                gap: 24px;
+            }
+            .lp-hero-text h1 {
+                font-size: 1.75rem;
+            }
+
+            /* ROI Calculator: single column */
+            .calculator-container {
+                grid-template-columns: 1fr;
+                padding: 24px 16px;
+                gap: 24px;
+            }
+            .calc-stat-value {
+                font-size: 2.25rem;
+            }
+
+            /* Carousel: full-width, shorter height */
+            .carousel-view {
+                max-width: 100%;
+                border-radius: var(--border-radius-md);
+            }
+            .carousel-slides-container {
+                height: 380px;
+            }
+            .slide-hero-number {
+                font-size: 2.25rem;
+            }
+            .floating-badge {
+                font-size: 0.65rem;
+                padding: 8px 10px;
+            }
+
+            /* Google Ads mock: full-width */
+            .google-search-mock {
+                max-width: 100%;
+                padding: 16px;
+            }
+            .google-ad-link {
+                font-size: 1rem;
+            }
+
+            /* Display banners: scale down large fixed-size banners */
+            .display-banner-728 {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                min-height: 80px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 14px 16px;
+            }
+            .banner-728-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .banner-flex-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .display-banner-160 {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                min-height: 160px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 16px;
+                gap: 12px;
+            }
+            .banner-160-stat {
+                font-size: 1.8rem;
+            }
+            .display-banner-300 {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Playbook booklet: single column */
+            .booklet-cover-large {
+                width: 160px;
+                min-height: 230px;
+            }
+            /* Override the inline grid for playbook section */
+            section#playbook > div[style*="grid-template-columns"] {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 24px !important;
+            }
+
+            /* Email client: vertical stack, hide email list, show viewer */
+            .email-client {
+                height: auto;
+                grid-template-columns: 1fr;
+                min-height: 500px;
+            }
+            .email-sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--color-slate-light);
+                max-height: 220px;
+            }
+            .email-viewer-body {
+                padding: 16px;
+            }
+            .email-content-header {
+                padding: 16px;
+            }
+            .email-subject {
+                font-size: 0.95rem;
+            }
+            .rich-email-wrapper {
+                max-width: 100%;
+            }
+
+            /* Material actions: wrap and center */
+            .material-actions {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .action-btn {
+                font-size: 0.8rem;
+                padding: 8px 14px;
+            }
+
+            /* Sidebar footer: less padding */
+            .sidebar-footer {
+                padding-top: 12px;
+                font-size: 0.7rem;
+            }
+
+            /* Toast: full-width bottom banner on mobile */
+            .glass-toast {
+                left: 16px;
+                right: 16px;
+                bottom: 16px;
+                text-align: center;
+            }
+
+            /* Operation card full-width on mobile */
+            .operation-card {
+                max-width: 100%;
+            }
+        }
+
+        /* Extra-small mobile (≤ 480px) */
+        @media (max-width: 480px) {
+            .tab-panel {
+                padding: 12px;
+            }
+            .workspace-header {
+                padding: 10px 12px;
+            }
+            .workspace-title-area h1 {
+                font-size: 0.95rem;
+            }
+            .carousel-slides-container {
+                height: 320px;
+            }
+            .info-card {
+                padding: 16px;
+            }
+            .alert-block {
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- Mobile Sidebar Overlay (backdrop for closing sidebar on mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
 
     <!-- SIDEBAR NAVIGATION -->
     <aside class="sidebar">
@@ -2574,22 +2857,40 @@
 
     <!-- INTERACTIVE DASHBOARD JAVASCRIPT -->
     <script>
-        // Sidebar Toggle logic
+        // Sidebar Toggle logic — mobile-aware
         function toggleSidebar() {
-            document.body.classList.toggle('sidebar-hidden');
+            const isMobile = window.innerWidth <= 768;
             const icon = document.getElementById('sidebarToggleIcon');
-            if (document.body.classList.contains('sidebar-hidden')) {
-                // Change to right arrow/chevron
-                icon.innerHTML = '<path d="M9 18l6-6-6-6"/>';
+
+            if (isMobile) {
+                // On mobile: toggle the overlay sidebar open/closed
+                const isOpen = document.body.classList.toggle('mobile-sidebar-open');
+                icon.innerHTML = isOpen
+                    ? '<path d="M18 6L6 18M6 6l12 12"/>'  // X icon when open
+                    : '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
             } else {
-                // Change back to hamburger/lines
-                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+                // On desktop: toggle sidebar-hidden to collapse/expand
+                document.body.classList.toggle('sidebar-hidden');
+                if (document.body.classList.contains('sidebar-hidden')) {
+                    icon.innerHTML = '<path d="M9 18l6-6-6-6"/>';
+                } else {
+                    icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+                }
             }
+        }
+
+        // Close mobile sidebar (called by overlay backdrop click)
+        function closeMobileSidebar() {
+            document.body.classList.remove('mobile-sidebar-open');
+            const icon = document.getElementById('sidebarToggleIcon');
+            if (icon) icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
         }
 
         // Core Tab System Switcher
         function switchTab(tabId, event) {
-            // Hide all tab panels
+            // On mobile, close the sidebar after picking a section
+            if (window.innerWidth <= 768) closeMobileSidebar();
+
             document.querySelectorAll('.tab-panel').forEach(panel => {
                 panel.classList.remove('active');
             });
