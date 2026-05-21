@@ -65,6 +65,7 @@
             left: 0;
             z-index: 100;
             padding: 24px 16px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .main-content {
@@ -74,6 +75,41 @@
             display: flex;
             flex-direction: column;
             background-color: var(--color-slate-dark);
+            transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Sidebar Toggle styles */
+        body.sidebar-hidden .sidebar {
+            transform: translateX(-260px);
+        }
+
+        body.sidebar-hidden .main-content {
+            margin-left: 0;
+        }
+
+        .toggle-sidebar-btn {
+            background-color: var(--color-slate-light);
+            border: 1px solid var(--color-slate-light);
+            color: var(--color-text-secondary);
+            border-radius: var(--border-radius-sm);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .toggle-sidebar-btn:hover {
+            color: #fff;
+            background-color: var(--color-teal);
+            border-color: var(--color-teal);
+        }
+
+        .toggle-sidebar-btn svg {
+            width: 20px;
+            height: 20px;
         }
 
         /* Sidebar Header & Brand */
@@ -1444,6 +1480,42 @@
             color: #9CA3AF;
             border-top: 1px solid #E5E7EB;
         }
+
+        /* Material Action Bar */
+        .material-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px dashed var(--color-slate-light);
+        }
+
+        .action-btn {
+            background-color: var(--color-slate-dark);
+            color: #fff;
+            border: 1px solid var(--color-slate-light);
+            padding: 10px 20px;
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .action-btn:hover {
+            background-color: var(--color-teal);
+            border-color: var(--color-teal);
+        }
+
+        .action-btn svg {
+            width: 16px;
+            height: 16px;
+        }
     </style>
 </head>
 <body>
@@ -1497,9 +1569,19 @@
         
         <!-- TOP HEADER BAR -->
         <header class="workspace-header">
-            <div class="workspace-title-area">
-                <h1 id="tabTitle">Overview & Brand Strategy</h1>
-                <p id="tabSubtitle">Tailored Operational Support & Lead-to-Revenue Systems</p>
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button class="toggle-sidebar-btn" onclick="toggleSidebar()" title="Toggle Sidebar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="sidebarToggleIcon">
+                        <!-- Hamburger icon -->
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="workspace-title-area">
+                    <h1 id="tabTitle">Overview & Brand Strategy</h1>
+                    <p id="tabSubtitle">Tailored Operational Support & Lead-to-Revenue Systems</p>
+                </div>
             </div>
             
             <div class="branding-pill">
@@ -1563,6 +1645,17 @@
                 <!-- Actual Coded High-Fidelity Landing Page Embed -->
                 <iframe src="Landing%20page/Landing%20Page.html" style="width: 100%; height: 800px; border: none; display: block; background: #f6f2ec;"></iframe>
             </div>
+
+            <div class="material-actions">
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download HTML Package
+                </button>
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    Share Preview Link
+                </button>
+            </div>
         </section>
 
         <!-- =================== TAB 3: CAROUSEL ADS =================== -->
@@ -1597,11 +1690,10 @@
                     <!-- SLIDE 1: The Revenue Leak -->
                     <div class="carousel-slide active" id="slide1">
                         <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-1" style="flex-direction:column; text-align:center; padding:24px;">
+                            <div class="slide-visual slide-visual-1" style="background: linear-gradient(rgba(11,26,26,0.8), rgba(15,53,53,0.9)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; text-align:center; padding:24px;">
                                 <div class="stat-big" style="color:#FFC520;">$20K<span class="stat-unit" style="color:rgba(255,197,32,0.6);">+</span></div>
                                 <div class="stat-label" style="color:rgba(255,197,32,0.8);">Leaking every month</div>
-                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.5); max-width:200px; line-height:1.5;">Average revenue loss from missed after-hours calls in home service businesses</div>
-                                <div style="position:absolute; bottom:16px; right:16px; opacity:0.15; font-size:5rem;">💧</div>
+                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.8); max-width:200px; line-height:1.5; font-weight:600;">Average revenue loss from missed after-hours calls in home service businesses</div>
                             </div>
                         </div>
                         <div class="slide-content">
@@ -1613,11 +1705,10 @@
                     <!-- SLIDE 2: The 62% Stat -->
                     <div class="carousel-slide" id="slide2">
                         <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-2" style="flex-direction:column; text-align:center; padding:24px;">
+                            <div class="slide-visual slide-visual-2" style="background: linear-gradient(rgba(26,16,0,0.8), rgba(61,40,0,0.9)), url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; text-align:center; padding:24px;">
                                 <div class="stat-big" style="color:#FFC520;">62<span class="stat-unit" style="color:rgba(255,197,32,0.7);">%</span></div>
                                 <div class="stat-label" style="color:rgba(255,197,32,0.8);">Won't leave a voicemail</div>
-                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.5); max-width:200px; line-height:1.5;">Of homeowners will hang up and call the next Google listing if a live person doesn't answer</div>
-                                <div style="position:absolute; bottom:16px; right:16px; opacity:0.12; font-size:5rem;">📞</div>
+                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.8); max-width:200px; line-height:1.5; font-weight:600;">Of homeowners will hang up and call the next Google listing if a live person doesn't answer</div>
                             </div>
                         </div>
                         <div class="slide-content">
@@ -1629,7 +1720,7 @@
                     <!-- SLIDE 3: The Bookkeeping Problem -->
                     <div class="carousel-slide" id="slide3">
                         <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-3" style="flex-direction:column; padding:20px;">
+                            <div class="slide-visual slide-visual-3" style="background: linear-gradient(rgba(16,21,28,0.85), rgba(26,37,53,0.95)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; padding:20px;">
                                 <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:var(--color-teal); margin-bottom:12px; font-weight:700;">Real-Time Financial Dashboard</div>
                                 <ul class="slide-check-list">
                                     <li><span class="check-mark">✓</span>Daily job costing reconciled</li>
@@ -1648,17 +1739,15 @@
                     <!-- SLIDE 4: The All-in-One System -->
                     <div class="carousel-slide" id="slide4">
                         <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-4" style="flex-direction:column; text-align:center; padding:20px; gap:10px;">
+                            <div class="slide-visual slide-visual-4" style="background: linear-gradient(rgba(6,32,15,0.85), rgba(10,53,32,0.95)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; text-align:center; padding:20px; gap:10px;">
                                 <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:#10b981; font-weight:700; margin-bottom:4px;">One Roof. All Operations.</div>
                                 <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
-                                    <span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">24/7 Call Answering</span>
-                                    <span style="background:rgba(0,163,170,0.15); border:1px solid rgba(0,163,170,0.3); color:var(--color-teal); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Dispatch</span>
-                                    <span style="background:rgba(255,197,32,0.15); border:1px solid rgba(255,197,32,0.3); color:var(--color-gold); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Bookkeeping</span>
-                                    <span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">QuickBooks</span>
-                                    <span style="background:rgba(0,163,170,0.15); border:1px solid rgba(0,163,170,0.3); color:var(--color-teal); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Fractional CFO</span>
-                                    <span style="background:rgba(255,197,32,0.15); border:1px solid rgba(255,197,32,0.3); color:var(--color-gold); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Lead Conversion</span>
+                                    <span style="background:rgba(16,185,129,0.25); border:1px solid rgba(16,185,129,0.5); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">24/7 Call Answering</span>
+                                    <span style="background:rgba(0,163,170,0.25); border:1px solid rgba(0,163,170,0.5); color:var(--color-teal); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Dispatch</span>
+                                    <span style="background:rgba(255,197,32,0.25); border:1px solid rgba(255,197,32,0.5); color:var(--color-gold); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Bookkeeping</span>
+                                    <span style="background:rgba(16,185,129,0.25); border:1px solid rgba(16,185,129,0.5); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">QuickBooks</span>
                                 </div>
-                                <div style="margin-top:8px; font-size:0.7rem; color:rgba(255,255,255,0.4);">All under one contract · No vendor chaos</div>
+                                <div style="margin-top:8px; font-size:0.7rem; color:rgba(255,255,255,0.7); font-weight:600;">All under one contract · No vendor chaos</div>
                             </div>
                         </div>
                         <div class="slide-content">
@@ -1670,10 +1759,10 @@
                     <!-- SLIDE 5: The CTA -->
                     <div class="carousel-slide" id="slide5">
                         <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-5" style="flex-direction:column; align-items:center; text-align:center; padding:24px; gap:12px;">
+                            <div class="slide-visual slide-visual-5" style="background: linear-gradient(rgba(15,10,32,0.7), rgba(30,16,64,0.85)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; align-items:center; text-align:center; padding:24px; gap:12px;">
                                 <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" style="max-height:28px; margin-bottom:8px;" alt="CIC Logo">
                                 <div style="font-size:1.5rem; font-weight:900; font-family:var(--font-display); color:#fff; line-height:1.2;">Scale to $2M+</div>
-                                <div style="font-size:0.7rem; color:rgba(255,255,255,0.5); max-width:180px; line-height:1.5;">Without adding internal staff or micromanaging a call center</div>
+                                <div style="font-size:0.7rem; color:rgba(255,255,255,0.8); max-width:180px; line-height:1.5; font-weight:600;">Without adding internal staff or micromanaging a call center</div>
                                 <div style="background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover)); color:#fff; padding:10px 24px; border-radius:20px; font-size:0.75rem; font-weight:700; font-family:var(--font-display); margin-top:4px;">Get Free ROI Analysis →</div>
                             </div>
                         </div>
@@ -1696,6 +1785,17 @@
                     </div>
                     <button class="carousel-btn" onclick="moveCarousel(1)">Next Slide →</button>
                 </div>
+            </div>
+
+            <div class="material-actions">
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Assets (.zip)
+                </button>
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    Share Campaign Link
+                </button>
             </div>
         </section>
 
@@ -1778,6 +1878,17 @@
                     </div>
                 </div>
             </div>
+
+            <div class="material-actions">
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Export Ad Copy (CSV)
+                </button>
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    Share Ad Group
+                </button>
+            </div>
         </section>
 
         <!-- =================== TAB 5: DISPLAY BANNERS =================== -->
@@ -1850,6 +1961,17 @@
                         <a href="#" class="banner-btn-mini" style="width:100%; text-align:center; display:block; background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover));">Get Free Analysis</a>
                     </div>
                 </div>
+            </div>
+
+            <div class="material-actions">
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download HTML5 Banners
+                </button>
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    Share Display Set
+                </button>
             </div>
         </section>
 
@@ -1932,6 +2054,17 @@
                         <a href="#" class="lp-btn-primary" style="font-size:0.8rem; padding:10px 24px; text-decoration:none;">Get Your Free Copy →</a>
                     </div>
                 </div>
+            </div>
+
+            <div class="material-actions">
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Playbook PDF
+                </button>
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    Share Asset
+                </button>
             </div>
         </section>
 
@@ -2040,12 +2173,36 @@
                     </div>
                 </div>
             </div>
+
+            <div class="material-actions">
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Export Email Sequence
+                </button>
+                <button class="action-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    Share Campaigns
+                </button>
+            </div>
         </section>
 
     </main>
 
     <!-- INTERACTIVE DASHBOARD JAVASCRIPT -->
     <script>
+        // Sidebar Toggle logic
+        function toggleSidebar() {
+            document.body.classList.toggle('sidebar-hidden');
+            const icon = document.getElementById('sidebarToggleIcon');
+            if (document.body.classList.contains('sidebar-hidden')) {
+                // Change to right arrow/chevron
+                icon.innerHTML = '<path d="M9 18l6-6-6-6"/>';
+            } else {
+                // Change back to hamburger/lines
+                icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>';
+            }
+        }
+
         // Core Tab System Switcher
         function switchTab(tabId) {
             // Hide all tab panels
