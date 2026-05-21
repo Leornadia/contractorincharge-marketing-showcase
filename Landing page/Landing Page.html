@@ -44,10 +44,10 @@
   /* ============ NAV ============ */
   nav.top {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(10,20,20,0.96);
+    background: rgba(246, 242, 236, 0.96);
     backdrop-filter: saturate(140%) blur(12px);
     -webkit-backdrop-filter: saturate(140%) blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid var(--line);
   }
   nav.top .row {
     display: flex; align-items: center; justify-content: space-between;
@@ -58,10 +58,10 @@
   .brand .wordmark { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
   .brand .wordmark span { color: var(--teal-deep); }
   nav .links { display: flex; gap: 28px; align-items: center; }
-  nav .links a { font-size: 14px; text-decoration: none; color: rgba(255,255,255,0.75); }
-  nav .links a:hover { color: var(--gold); }
-  nav .phone { font-family: 'Geist Mono', monospace; font-size: 13px; color: rgba(255,255,255,0.85); }
-  nav .phone strong { color: #fff; font-weight: 600; }
+  nav .links a { font-size: 14px; text-decoration: none; color: var(--ink-2); }
+  nav .links a:hover { color: var(--teal); }
+  nav .phone { font-family: 'Geist Mono', monospace; font-size: 13px; color: var(--muted); }
+  nav .phone strong { color: var(--ink); font-weight: 600; }
   .btn {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 13px 20px;
@@ -293,35 +293,35 @@
   }
 
   /* ============ PILLARS ============ */
-  .pillars { padding: 110px 0; background: var(--ink); color: var(--bg); }
+  .pillars { padding: 110px 0; background: var(--bg); color: var(--ink); }
   .pillars .head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 56px; flex-wrap: wrap; }
-  .pillars h2 { color: var(--bg); max-width: 720px; }
-  .pillars .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-  .pillars .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
-  .pillars .lede { color: rgba(246,242,236,0.7); max-width: 380px; font-size: 16px; }
-  .pillars .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(246,242,236,0.12); border: 1px solid rgba(246,242,236,0.12); border-radius: 24px; overflow: hidden; }
-  .pillar { background: var(--ink); padding: 36px 32px; display: flex; flex-direction: column; gap: 18px; min-height: 380px; }
-  .pillar .num { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.1em; }
-  .pillar h3 { color: var(--bg); font-size: 26px; line-height: 1.1; }
-  .pillar p { color: rgba(246,242,236,0.7); font-size: 15px; flex: 1; }
+  .pillars h2 { color: var(--ink); max-width: 720px; }
+  .pillars .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .pillars .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--teal-deep); }
+  .pillars .lede { color: var(--ink-2); max-width: 380px; font-size: 16px; }
+  .pillars .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+  .pillar { background: white; padding: 36px 32px; display: flex; flex-direction: column; gap: 18px; min-height: 380px; }
+  .pillar .num { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--teal-deep); letter-spacing: 0.1em; }
+  .pillar h3 { color: var(--ink); font-size: 26px; line-height: 1.1; }
+  .pillar p { color: var(--ink-2); font-size: 15px; flex: 1; }
   .pillar .icon {
     width: 56px; height: 56px; border-radius: 14px;
-    background: linear-gradient(180deg, rgba(15,154,152,0.25), rgba(15,154,152,0.05));
-    border: 1px solid rgba(15,154,152,0.45);
+    background: linear-gradient(180deg, rgba(15,154,152,0.1), rgba(15,154,152,0.02));
+    border: 1px solid rgba(15,154,152,0.3);
     display: grid; place-items: center; color: var(--teal);
     margin-bottom: 8px;
   }
-  .pillar:nth-child(2) .icon { color: var(--gold); border-color: rgba(245,197,66,0.45); background: linear-gradient(180deg, rgba(245,197,66,0.2), rgba(245,197,66,0.04)); }
-  .pillar:nth-child(3) .icon { color: #b6d4d3; }
+  .pillar:nth-child(2) .icon { color: var(--gold-deep); border-color: rgba(217,165,19,0.3); background: linear-gradient(180deg, rgba(245,197,66,0.1), rgba(245,197,66,0.02)); }
+  .pillar:nth-child(3) .icon { color: var(--teal-deep); border-color: rgba(15,154,152,0.3); background: linear-gradient(180deg, rgba(15,154,152,0.1), rgba(15,154,152,0.02)); }
   .pillar .tags { display: flex; gap: 8px; flex-wrap: wrap; }
   .pillar .tag {
     font-family: 'Geist Mono', monospace; font-size: 10.5px;
     letter-spacing: 0.05em;
     padding: 5px 9px;
     border-radius: 999px;
-    background: rgba(246,242,236,0.07);
-    border: 1px solid rgba(246,242,236,0.12);
-    color: rgba(246,242,236,0.8);
+    background: var(--bg-2);
+    border: 1px solid var(--line-2);
+    color: var(--ink-2);
     text-transform: uppercase;
   }
 
@@ -446,8 +446,9 @@
   /* ============ TESTIMONIAL ============ */
   .testimonial { padding: 110px 0; }
   .testimonial .card {
-    background: linear-gradient(135deg, #0b6f6e, #06403f);
-    color: var(--bg);
+    background: rgba(15,154,152,0.06);
+    border: 1px solid rgba(15,154,152,0.15);
+    color: var(--ink);
     border-radius: 28px;
     padding: 64px;
     position: relative;
@@ -458,9 +459,9 @@
     position: absolute;
     inset: -50% -10% auto auto;
     width: 60%; aspect-ratio: 1;
-    background: radial-gradient(circle at center, rgba(245,197,66,0.18), transparent 60%);
+    background: radial-gradient(circle at center, rgba(245,197,66,0.15), transparent 60%);
   }
-  .testimonial .quote-mark { font-family: 'Archivo'; font-size: 120px; line-height: 0.6; color: var(--gold); }
+  .testimonial .quote-mark { font-family: 'Archivo'; font-size: 120px; line-height: 0.6; color: var(--teal); }
   .testimonial blockquote {
     font-family: 'Archivo', sans-serif;
     font-weight: 600;
@@ -469,8 +470,9 @@
     line-height: 1.2;
     margin: 18px 0 32px;
     max-width: 880px;
+    color: var(--ink);
   }
-  .testimonial blockquote .hi { color: var(--gold); }
+  .testimonial blockquote .hi { color: var(--teal-deep); }
   .testimonial .who { display: flex; align-items: center; gap: 16px; }
   .testimonial .who .avatar {
     width: 52px; height: 52px; border-radius: 50%;
@@ -480,7 +482,7 @@
     font-family: 'Archivo'; font-weight: 800; font-size: 18px;
   }
   .testimonial .who .name { font-weight: 600; font-size: 15px; }
-  .testimonial .who .role { font-size: 13px; color: rgba(246,242,236,0.65); margin-top: 2px; }
+  .testimonial .who .role { font-size: 13px; color: var(--muted); margin-top: 2px; }
 
   /* ============ CTA FOOTER ============ */
   .cta-final { padding: 100px 0 60px; text-align: center; }
@@ -513,7 +515,7 @@
 <nav class="top">
   <div class="row">
     <a class="brand" href="#">
-      <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Contractor in Charge Logo" style="height: 38px; width: auto; display: block;">
+      <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Contractor in Charge Logo" style="height: 38px; width: auto; display: block; filter: brightness(0.12) !important;">
     </a>
     <div class="links">
       <a href="#services">Services</a>
@@ -857,7 +859,7 @@
 <footer>
   <div class="wrap">
     <div style="display:flex; align-items:center; gap:14px;">
-      <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Contractor in Charge Logo" style="height: 28px; width: auto; display: block; opacity: 0.85;">
+      <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Contractor in Charge Logo" style="height: 28px; width: auto; display: block; filter: brightness(0.12) !important;">
       <span class="small">© 2026 Contractor in Charge · Built for the trades</span>
     </div>
     <div class="links">

@@ -14,22 +14,25 @@
         :root {
             --color-teal: #00A3AA;
             --color-teal-hover: #00878D;
-            --color-teal-light: rgba(0, 163, 170, 0.1);
+            --color-teal-light: rgba(0, 163, 170, 0.08);
             --color-gold: #FFC520;
             --color-gold-hover: #E0AB17;
-            --color-slate-dark: #0B0E14;
-            --color-slate-card: #151A22;
-            --color-slate-light: #202733;
-            --color-text-primary: #FFFFFF;
-            --color-text-secondary: #94A3B8;
-            --color-text-muted: #64748B;
+            
+            /* High-fidelity Light Mode Skeleton */
+            --color-slate-dark: #F8FAFC;    /* Main page background: slate-50 */
+            --color-slate-card: #FFFFFF;    /* Sidebar & card backgrounds: pure white */
+            --color-slate-light: #E2E8F0;   /* Borders, grids, & dividers: slate-200 */
+            --color-text-primary: #0F172A;  /* Main text: slate-900 */
+            --color-text-secondary: #475569;/* Secondary text: slate-600 */
+            --color-text-muted: #64748B;    /* Muted captions: slate-500 */
             --color-white: #FFFFFF;
-            --color-bg-light: #F8F9FA;
+            --color-bg-light: #F1F5F9;      /* Light sub-element backgrounds: slate-100 */
+            
             --font-display: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 10px rgba(0,0,0,0.2);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(15,23,42,0.04);
+            --shadow-lg: 0 10px 25px rgba(15,23,42,0.06);
             --border-radius-sm: 6px;
             --border-radius-md: 12px;
             --border-radius-lg: 20px;
@@ -88,7 +91,7 @@
         }
 
         .toggle-sidebar-btn {
-            background-color: var(--color-slate-light);
+            background-color: var(--color-bg-light);
             border: 1px solid var(--color-slate-light);
             color: var(--color-text-secondary);
             border-radius: var(--border-radius-sm);
@@ -112,13 +115,16 @@
             height: 20px;
         }
 
-        /* Sidebar Header & Brand */
+        /* Sidebar Header & Brand (Wrapped in premium dark plaque to hold white logo) */
         .brand-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--color-slate-light);
+            padding: 16px;
+            background-color: #0E1A1A; /* CIC Deep Slate/Teal brand background */
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(0, 163, 170, 0.2);
             margin-bottom: 24px;
         }
 
@@ -163,11 +169,11 @@
 
         .nav-item:hover {
             color: var(--color-text-primary);
-            background-color: var(--color-slate-light);
+            background-color: var(--color-bg-light);
         }
 
         .nav-item.active {
-            color: var(--color-text-primary);
+            color: #FFFFFF;
             background-color: var(--color-teal);
         }
 
@@ -199,7 +205,7 @@
             font-family: var(--font-display);
             font-weight: 700;
             font-size: 1.75rem;
-            background: linear-gradient(135deg, var(--color-white), var(--color-text-secondary));
+            background: linear-gradient(135deg, var(--color-text-primary), var(--color-text-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -214,10 +220,10 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--color-slate-light);
+            background-color: var(--color-bg-light);
             padding: 8px 16px;
             border-radius: 50px;
-            border: 1px solid var(--color-teal-light);
+            border: 1px solid var(--color-slate-light);
         }
 
         .color-dot {
@@ -265,6 +271,7 @@
             border-radius: var(--border-radius-lg);
             padding: 24px;
             transition: var(--transition);
+            box-shadow: var(--shadow-sm);
         }
 
         .info-card:hover {
@@ -287,16 +294,17 @@
             line-height: 1.6;
         }
 
-        /* Glassmorphism Alert Blocks */
+        /* Glassmorphism Alert Blocks - Adjusted for Light Mode */
         .alert-block {
-            background: linear-gradient(135deg, rgba(0, 163, 170, 0.05) 0%, rgba(21, 26, 34, 0.8) 100%);
-            border: 1px solid rgba(0, 163, 170, 0.2);
+            background: linear-gradient(135deg, rgba(0, 163, 170, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+            border: 1px solid rgba(0, 163, 170, 0.15);
             border-radius: var(--border-radius-md);
             padding: 20px;
             margin-bottom: 32px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
+            box-shadow: var(--shadow-sm);
         }
 
         .alert-icon {
@@ -596,8 +604,9 @@
         }
 
         /* 2. Interactive Social Carousel Mock */
+        /* 2. Premium Interactive Social Carousel Mock */
         .carousel-view {
-            max-width: 550px;
+            max-width: 500px;
             margin: 0 auto;
             background-color: var(--color-slate-card);
             border: 1px solid var(--color-slate-light);
@@ -607,67 +616,149 @@
         }
 
         .carousel-ad-header {
-            padding: 16px;
+            padding: 14px 16px;
             display: flex;
             align-items: center;
             gap: 12px;
+            background-color: var(--color-slate-card);
             border-bottom: 1px solid var(--color-slate-light);
         }
 
         .avatar-circle {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            background-color: var(--color-teal-light);
-            border: 1px solid var(--color-teal);
+            overflow: hidden;
+            border: 2px solid var(--color-teal);
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: var(--color-bg-light);
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .carousel-header-info h4 {
             font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--color-text-primary);
+            line-height: 1.2;
         }
 
         .carousel-header-info p {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--color-text-muted);
+            margin-top: 2px;
         }
 
         .carousel-body-text {
-            padding: 16px;
-            font-size: 0.9rem;
+            padding: 12px 16px;
+            font-size: 0.85rem;
             color: var(--color-text-secondary);
-            line-height: 1.5;
+            line-height: 1.4;
+            background-color: var(--color-slate-card);
         }
 
         .carousel-slides-container {
             position: relative;
-            height: 380px;
+            height: 500px; /* Perfect B2B presentation proportions */
             overflow: hidden;
+            background-color: var(--color-slate-dark);
+            border-bottom: 1px solid var(--color-slate-light);
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 32px;
-            background: linear-gradient(135deg, var(--color-slate-light) 0%, var(--color-slate-dark) 100%);
-            z-index: 1;
+            padding: 24px;
+            box-sizing: border-box;
+            position: relative;
+            background-size: cover;
+            background-position: center;
         }
 
-        .carousel-slide.active {
-            opacity: 1;
-            z-index: 2;
+        /* Slide layout elements */
+        .slide-top-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 5;
+        }
+
+        .stat-pill {
+            background-color: var(--color-teal-light);
+            color: var(--color-teal);
+            border: 1px solid rgba(0, 163, 170, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .slide-hero-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--color-teal);
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        .slide-hero-label {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .slide-glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 163, 170, 0.15);
+            border-radius: 12px;
+            padding: 16px;
+            z-index: 5;
+            box-shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
+        }
+
+        .slide-glass-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--color-text-primary);
+            margin-bottom: 6px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .slide-glass-card p {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            line-height: 1.45;
+            margin: 0;
         }
 
         .slide-graphic {
@@ -675,115 +766,112 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             position: relative;
+            z-index: 4;
         }
 
-        /* Slide visual art panels */
-        .slide-visual {
-            width: 100%;
-            height: 180px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+        /* Float Badge Keyframes & Animations (Slide 1) */
+        @keyframes floatUp1 {
+            0% { transform: translateY(40px) rotate(-2deg); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateY(-90px) rotate(2deg); opacity: 0; }
         }
-        .slide-visual-1 {
-            background: linear-gradient(135deg, #0b1a1a 0%, #0f3535 100%);
-            border: 1px solid rgba(0,163,170,0.3);
+        @keyframes floatUp2 {
+            0% { transform: translateY(50px) rotate(3deg); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateY(-75px) rotate(-3deg); opacity: 0; }
         }
-        .slide-visual-2 {
-            background: linear-gradient(135deg, #1a1000 0%, #3d2800 100%);
-            border: 1px solid rgba(255,197,32,0.3);
-        }
-        .slide-visual-3 {
-            background: linear-gradient(135deg, #10151C 0%, #1a2535 100%);
-            border: 1px solid rgba(0,163,170,0.2);
-        }
-        .slide-visual-4 {
-            background: linear-gradient(135deg, #06200f 0%, #0a3520 100%);
-            border: 1px solid rgba(16,185,129,0.3);
-        }
-        .slide-visual-5 {
-            background: linear-gradient(135deg, #0f0a20 0%, #1e1040 100%);
-            border: 1px solid rgba(139,92,246,0.3);
-        }
-        .stat-big {
-            font-family: var(--font-display);
-            font-size: 4.5rem;
-            font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 1;
-        }
-        .stat-unit { font-size: 2rem; }
-        .stat-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.7;
-            margin-top: 4px;
+
+        .floating-badge {
+            position: absolute;
+            background: #FFFFFF;
+            border-left: 4px solid #EF4444;
+            box-shadow: var(--shadow-md);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.75rem;
             font-weight: 600;
-        }
-        .slide-icon-large {
-            font-size: 5rem;
-            line-height: 1;
-        }
-        .slide-icon-row {
+            color: var(--color-text-primary);
             display: flex;
-            gap: 12px;
-            font-size: 2.5rem;
-        }
-        .slide-check-list {
-            text-align: left;
-            padding: 0 16px;
-        }
-        .slide-check-list li {
-            list-style: none;
-            padding: 6px 0;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .check-mark {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--color-teal);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65rem;
-            flex-shrink: 0;
-        }
-        .slide-logo-lockup {
-            display: flex;
-            flex-direction: column;
             align-items: center;
             gap: 8px;
+            z-index: 4;
         }
-        .slide-logo-lockup img {
-            max-height: 32px;
+
+        .floating-badge.badge-1 {
+            left: 20px;
+            bottom: 30px;
+            animation: floatUp1 7s infinite ease-in-out;
         }
-        .slide-tagline {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--color-gold);
-            font-weight: 700;
+
+        .floating-badge.badge-2 {
+            right: 20px;
+            bottom: 60px;
+            animation: floatUp2 8s infinite ease-in-out;
+            animation-delay: 2.5s;
         }
+
+        /* Animated SVG Donut segment (Slide 2) */
+        @keyframes progress {
+            from { stroke-dashoffset: 251.2; }
+            to { stroke-dashoffset: 95.4; }
+        }
+        .donut-segment {
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            animation: progress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        /* Sync Path animations (Slide 3) */
+        @keyframes crawl {
+            to { stroke-dashoffset: -20; }
+        }
+        .sync-line {
+            stroke-dasharray: 5, 5;
+            animation: crawl 1.2s linear infinite;
+        }
+
+        /* Operation Cards animations (Slide 4) */
+        .operation-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--color-slate-light);
+            border-radius: var(--border-radius-md);
+            padding: 10px 14px;
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .operation-card:hover {
+            transform: translateX(6px);
+            border-color: var(--color-teal);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* SVG Bar animations (Slide 5) */
+        @keyframes growBar {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+        .revenue-bar {
+            transform-origin: bottom;
+            animation: growBar 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
         /* Enhanced e-book cover */
         .booklet-cover-large {
             width: 200px;
             min-height: 280px;
-            background: linear-gradient(160deg, #0d1f1f 0%, #061010 100%);
+            background: linear-gradient(160deg, #F8FAFC 0%, #FFFFFF 100%);
             border: 2px solid var(--color-teal);
             border-radius: 6px 2px 2px 6px;
-            box-shadow: 8px 8px 30px rgba(0,0,0,0.7), inset -6px 0 12px rgba(0,0,0,0.3);
+            box-shadow: 8px 8px 30px rgba(15,23,42,0.06), inset -6px 0 12px rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -794,62 +882,70 @@
         .booklet-cover-large::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-teal), var(--color-gold));
+            top: 0; left: 0; bottom: 0;
+            width: 12px;
+            background: #0E1A1A; /* CIC Deep Slate/Teal binding stripe */
+            border-right: 1px solid rgba(0,163,170,0.3);
+            z-index: 2;
         }
         .booklet-cover-large::after {
             content: '';
             position: absolute;
             top: 0; right: 0; bottom: 0;
             width: 10px;
-            background: linear-gradient(to left, rgba(0,163,170,0.08), transparent);
+            background: linear-gradient(to left, rgba(0,163,170,0.05), transparent);
         }
         .book-series-label {
             font-size: 0.55rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--color-gold);
+            color: var(--color-teal);
             font-weight: 700;
             font-family: var(--font-display);
+            padding-left: 12px;
         }
         .book-main-title {
             font-family: var(--font-display);
             font-size: 1rem;
             font-weight: 900;
-            color: #fff;
+            color: var(--color-text-primary);
             line-height: 1.25;
             margin: 12px 0;
+            padding-left: 12px;
         }
         .book-subtitle {
             font-size: 0.6rem;
-            color: rgba(255,255,255,0.5);
+            color: var(--color-text-secondary);
             line-height: 1.4;
             margin-bottom: 12px;
+            padding-left: 12px;
         }
         .book-divider {
             height: 1px;
             background: linear-gradient(90deg, var(--color-teal), transparent);
             margin: 8px 0;
+            margin-left: 12px;
         }
         .book-bottom-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+            padding-left: 12px;
         }
         .book-author {
             font-size: 0.55rem;
-            color: rgba(255,255,255,0.4);
+            color: var(--color-text-muted);
             line-height: 1.5;
         }
         .book-logo-bottom {
             max-height: 18px;
+            filter: brightness(0.12) !important;
         }
         .booklet-toc-enhanced .toc-chapter {
             display: flex;
             gap: 14px;
             padding: 14px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid var(--color-slate-light);
             align-items: flex-start;
         }
         .booklet-toc-enhanced .toc-chapter:last-child { border-bottom: none; }
@@ -869,7 +965,7 @@
         .toc-info h5 {
             font-size: 0.9rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--color-text-primary);
             margin-bottom: 3px;
         }
         .toc-info p {
@@ -879,8 +975,8 @@
         }
         .booklet-download-cta {
             margin-top: 24px;
-            background: linear-gradient(135deg, rgba(0,163,170,0.1), rgba(0,163,170,0.05));
-            border: 1px solid rgba(0,163,170,0.3);
+            background: linear-gradient(135deg, rgba(0,163,170,0.06), rgba(0,163,170,0.03));
+            border: 1px solid var(--color-slate-light);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
@@ -900,7 +996,7 @@
             border-radius: 24px;
             padding: 10px 20px;
             margin-bottom: 20px;
-            box-shadow: 0 1px 6px rgba(32,33,36,0.1);
+            box-shadow: 0 1px 6px rgba(32,33,36,0.08);
         }
         .google-search-bar span {
             font-family: Arial, sans-serif;
@@ -919,7 +1015,7 @@
         .display-banner-160 {
             width: 160px;
             height: 600px;
-            background: linear-gradient(180deg, var(--color-slate-card) 0%, #080c10 100%);
+            background: linear-gradient(180deg, var(--color-slate-card) 0%, var(--color-slate-dark) 100%);
             border: 2px solid var(--color-teal);
             border-radius: var(--border-radius-md);
             padding: 20px 14px;
@@ -931,6 +1027,7 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            color: var(--color-text-primary);
         }
         .display-banner-160:hover { border-color: var(--color-gold); }
         .display-banner-160::before {
@@ -970,7 +1067,7 @@
             font-weight: 700;
             margin-bottom: 8px;
             line-height: 1.25;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
         }
 
         .slide-content p {
@@ -985,12 +1082,13 @@
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid var(--color-slate-light);
+            background-color: var(--color-slate-card);
         }
 
         .carousel-btn {
-            background-color: var(--color-slate-light);
+            background-color: var(--color-bg-light);
             color: var(--color-text-primary);
-            border: none;
+            border: 1px solid var(--color-slate-light);
             padding: 8px 16px;
             border-radius: var(--border-radius-sm);
             font-weight: 600;
@@ -1001,6 +1099,8 @@
 
         .carousel-btn:hover {
             background-color: var(--color-teal);
+            border-color: var(--color-teal);
+            color: #FFFFFF;
         }
 
         .carousel-indicator {
@@ -1031,6 +1131,7 @@
             padding: 24px;
             color: #1A0DAB;
             box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-slate-light);
             font-family: Arial, sans-serif; /* Google standard */
         }
 
@@ -1112,12 +1213,12 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 163, 170, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 163, 170, 0.05) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .banner-title-area h5 {
-            color: var(--color-gold);
+            color: var(--color-teal);
             font-family: var(--font-display);
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -1130,7 +1231,7 @@
             font-size: 1.5rem;
             font-weight: 800;
             line-height: 1.2;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
         }
 
         .banner-body-text {
@@ -1149,6 +1250,7 @@
 
         .banner-logo-mini {
             max-height: 24px;
+            filter: brightness(0.12) !important;
         }
 
         .banner-btn-mini {
@@ -1160,6 +1262,10 @@
             font-size: 0.7rem;
             border-radius: var(--border-radius-sm);
             text-decoration: none;
+            transition: var(--transition);
+        }
+        .banner-btn-mini:hover {
+            background-color: var(--color-teal-hover);
         }
 
         .display-banner-728 {
@@ -1190,7 +1296,7 @@
             font-family: var(--font-display);
             font-size: 1.15rem;
             font-weight: 800;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
         }
 
         .banner-728-text p {
@@ -1213,7 +1319,7 @@
         }
 
         .booklet-left {
-            background: linear-gradient(145deg, #10151C 0%, var(--color-slate-dark) 100%);
+            background: linear-gradient(145deg, #F8FAFC 0%, var(--color-slate-dark) 100%);
             padding: 40px 24px;
             display: flex;
             flex-direction: column;
@@ -1226,15 +1332,25 @@
         .booklet-cover {
             width: 140px;
             height: 200px;
-            background: linear-gradient(135deg, #1A2433 0%, #080C10 100%);
+            background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
             border: 2px solid var(--color-teal);
             border-radius: 4px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 5px 5px 15px rgba(15,23,42,0.06);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 16px;
             position: relative;
+        }
+
+        .booklet-cover::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            width: 10px;
+            background: #0E1A1A; /* CIC Deep Slate/Teal binding stripe */
+            border-right: 1px solid rgba(0,163,170,0.3);
+            z-index: 2;
         }
 
         .booklet-cover::after {
@@ -1244,16 +1360,17 @@
             left: 0;
             bottom: 0;
             width: 8px;
-            background: linear-gradient(to right, rgba(0,0,0,0.4), transparent);
+            background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
         }
 
         .booklet-cover h6 {
             font-family: var(--font-display);
             font-size: 0.45rem;
-            color: var(--color-gold);
+            color: var(--color-teal);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             text-align: center;
+            padding-left: 8px;
         }
 
         .booklet-cover h4 {
@@ -1261,14 +1378,17 @@
             font-size: 0.8rem;
             font-weight: 800;
             text-align: center;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
             line-height: 1.2;
             margin-top: 10px;
+            padding-left: 8px;
         }
 
         .book-logo {
             max-height: 16px;
             margin: 0 auto;
+            filter: brightness(0.12) !important;
+            padding-left: 8px;
         }
 
         .booklet-right {
@@ -1280,7 +1400,7 @@
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 16px;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
         }
 
         .chapter-line {
@@ -1306,7 +1426,7 @@
         .chapter-title h5 {
             font-size: 0.85rem;
             font-weight: 600;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
         }
 
         .chapter-title p {
@@ -1329,7 +1449,7 @@
         }
 
         .email-sidebar {
-            background-color: rgba(21, 26, 34, 0.5);
+            background-color: var(--color-bg-light);
             border-right: 1px solid var(--color-slate-light);
             display: flex;
             flex-direction: column;
@@ -1370,11 +1490,15 @@
         .email-item-title {
             font-weight: 600;
             font-size: 0.85rem;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
             margin-bottom: 4px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        .email-list-item.active .email-item-title {
+            color: var(--color-teal);
         }
 
         .email-item-sub {
@@ -1412,7 +1536,7 @@
             font-family: var(--font-display);
             font-weight: 700;
             font-size: 1.15rem;
-            color: #FFFFFF;
+            color: var(--color-text-primary);
             margin-bottom: 8px;
         }
 
@@ -1442,7 +1566,7 @@
         }
 
         .email-brand-bar {
-            background-color: var(--color-slate-dark);
+            background-color: #0E1A1A; /* CIC Brand Deep Teal/Dark */
             padding: 20px;
             text-align: center;
             border-bottom: 3px solid var(--color-teal);
@@ -1492,8 +1616,8 @@
         }
 
         .action-btn {
-            background-color: var(--color-slate-dark);
-            color: #fff;
+            background-color: var(--color-slate-card);
+            color: var(--color-text-primary);
             border: 1px solid var(--color-slate-light);
             padding: 10px 20px;
             border-radius: var(--border-radius-sm);
@@ -1510,11 +1634,144 @@
         .action-btn:hover {
             background-color: var(--color-teal);
             border-color: var(--color-teal);
+            color: #FFFFFF;
         }
 
         .action-btn svg {
             width: 16px;
             height: 16px;
+        }
+
+        /* Fullscreen Expanded Preview Styles */
+        body.fullscreen-preview .sidebar {
+            transform: translateX(-260px);
+        }
+        body.fullscreen-preview .main-content {
+            margin-left: 0;
+        }
+        body.fullscreen-preview .workspace-header {
+            padding: 12px 20px;
+        }
+        body.fullscreen-preview .tab-panel {
+            padding: 20px;
+        }
+
+        /* LinkedIn Actions interaction */
+        .linkedin-action-btn:hover {
+            background-color: var(--color-bg-light) !important;
+        }
+        .linkedin-action-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Toast styling */
+        .glass-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--color-teal);
+            padding: 12px 24px;
+            border-radius: var(--border-radius-md);
+            color: var(--color-text-primary);
+            box-shadow: var(--shadow-lg);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 10000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+        }
+        .glass-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Dynamic transition triggers for animations inside active slides */
+        .carousel-slide.active .donut-segment {
+            animation: progress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .carousel-slide.active .revenue-bar {
+            animation: growBar 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Floating Exit Fullscreen Button Style */
+        .exit-fullscreen-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 99999;
+            background-color: rgba(14, 26, 26, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--color-teal);
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: var(--border-radius-md);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            transition: var(--transition);
+        }
+        .exit-fullscreen-btn:hover {
+            background-color: var(--color-teal);
+            transform: scale(1.05);
+        }
+        body.fullscreen-preview .exit-fullscreen-btn {
+            display: block !important;
+        }
+
+        /* Fullscreen Expansion Layout Overrides */
+        body.fullscreen-preview .sidebar {
+            transform: translateX(-260px) !important;
+        }
+        body.fullscreen-preview .main-content {
+            margin-left: 0 !important;
+            padding: 0 !important;
+        }
+        body.fullscreen-preview .workspace-header {
+            display: none !important;
+        }
+        body.fullscreen-preview .alert-block {
+            display: none !important;
+        }
+        body.fullscreen-preview .material-actions {
+            display: none !important;
+        }
+        body.fullscreen-preview .tab-panel {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100vh;
+            width: 100vw;
+            box-sizing: border-box;
+            display: none;
+        }
+        body.fullscreen-preview .tab-panel.active {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-slate-dark);
+            overflow-y: auto;
+        }
+        body.fullscreen-preview .mock-browser {
+            width: 100vw !important;
+            height: 100vh !important;
+            border-radius: 0 !important;
+            border: none !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+        }
+        body.fullscreen-preview .mock-browser iframe {
+            height: 100vh !important;
+            border-radius: 0 !important;
         }
     </style>
 </head>
@@ -1569,13 +1826,18 @@
         
         <!-- TOP HEADER BAR -->
         <header class="workspace-header">
-            <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
                 <button class="toggle-sidebar-btn" onclick="toggleSidebar()" title="Toggle Sidebar">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="sidebarToggleIcon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="sidebarToggleIcon" style="width:20px; height:20px;">
                         <!-- Hamburger icon -->
                         <line x1="3" y1="12" x2="21" y2="12"></line>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <button class="toggle-sidebar-btn" onclick="toggleFullscreen()" title="Full Screen Preview">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="fullscreenIcon" style="width:20px; height:20px;">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
                     </svg>
                 </button>
                 <div class="workspace-title-area">
@@ -1670,118 +1932,235 @@
                 </div>
             </div>
 
-            <div class="carousel-view">
-                <!-- Simulated Facebook Ad Header -->
-                <div class="carousel-ad-header">
-                    <div class="avatar-circle">
-                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" style="height:22px; border-radius:4px;" alt="CIC">
+            <div class="carousel-view" style="background-color: var(--color-slate-card); border: 1px solid var(--color-slate-light); box-shadow: var(--shadow-lg); border-radius: var(--border-radius-lg); overflow: hidden;">
+                <!-- Simulated B2B LinkedIn Sponsored Ad Header -->
+                <div class="carousel-ad-header" style="padding: 14px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--color-slate-light); background-color: var(--color-slate-card);">
+                    <div class="avatar-circle" style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1.5px solid var(--color-teal); display: flex; align-items: center; justify-content: center; background-color: #0E1A1A; padding: 4px; box-sizing: border-box;">
+                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="CIC Logo" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                     <div class="carousel-header-info">
-                        <h4>Contractor in Charge</h4>
-                        <p>Sponsored · 👥 Home Services Owners</p>
+                        <h4 style="font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: var(--color-text-primary); line-height: 1.2; margin:0;">Contractor in Charge</h4>
+                        <p style="font-size: 0.7rem; color: var(--color-text-muted); margin: 2px 0 0 0;">Sponsored · 👥 Home Services Owners</p>
                     </div>
                 </div>
-                <div class="carousel-body-text">
+                <div class="carousel-body-text" style="padding: 12px 16px; font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.45; background-color: var(--color-slate-card);">
                     Every missed call is a technician driving home empty. Are you paying to market your competitors? Let's plug the leak. 🛠️👇
                 </div>
 
-                <div class="carousel-slides-container">
-
-                    <!-- SLIDE 1: The Revenue Leak -->
-                    <div class="carousel-slide active" id="slide1">
-                        <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-1" style="background: linear-gradient(rgba(11,26,26,0.8), rgba(15,53,53,0.9)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; text-align:center; padding:24px;">
-                                <div class="stat-big" style="color:#FFC520;">$20K<span class="stat-unit" style="color:rgba(255,197,32,0.6);">+</span></div>
-                                <div class="stat-label" style="color:rgba(255,197,32,0.8);">Leaking every month</div>
-                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.8); max-width:200px; line-height:1.5; font-weight:600;">Average revenue loss from missed after-hours calls in home service businesses</div>
+                <div class="carousel-slides-container" style="position: relative; height: 500px; overflow: hidden; background-color: var(--color-slate-dark); border-bottom: 1px solid var(--color-slate-light);">
+                    <div class="carousel-track" id="carouselTrack" style="display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
+                        
+                        <!-- SLIDE 1 (The Hook) -->
+                        <div class="carousel-slide active" id="slide1" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.98) 85%), url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80') center/cover;">
+                            <div class="slide-top-visual">
+                                <span class="stat-pill">REVENUE LEAK</span>
+                                <h2 class="slide-hero-number" style="color: var(--color-teal); font-size: 2.8rem; font-weight:900;">$20,000+</h2>
+                                <p class="slide-hero-label" style="color: var(--color-text-secondary);">Lost Every Single Month</p>
                             </div>
-                        </div>
-                        <div class="slide-content">
-                            <h3>Is your trade business leaking $20,000+ a month?</h3>
-                            <p>Voicemails don't book jobs. If you missed a call today, you just handed your competitor a $350 ticket.</p>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 2: The 62% Stat -->
-                    <div class="carousel-slide" id="slide2">
-                        <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-2" style="background: linear-gradient(rgba(26,16,0,0.8), rgba(61,40,0,0.9)), url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; text-align:center; padding:24px;">
-                                <div class="stat-big" style="color:#FFC520;">62<span class="stat-unit" style="color:rgba(255,197,32,0.7);">%</span></div>
-                                <div class="stat-label" style="color:rgba(255,197,32,0.8);">Won't leave a voicemail</div>
-                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.8); max-width:200px; line-height:1.5; font-weight:600;">Of homeowners will hang up and call the next Google listing if a live person doesn't answer</div>
-                            </div>
-                        </div>
-                        <div class="slide-content">
-                            <h3>62% of callers won't wait for a callback.</h3>
-                            <p>Your competitor answered. Your voicemail didn't. That's a booked job you'll never know you lost.</p>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 3: The Bookkeeping Problem -->
-                    <div class="carousel-slide" id="slide3">
-                        <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-3" style="background: linear-gradient(rgba(16,21,28,0.85), rgba(26,37,53,0.95)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; padding:20px;">
-                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:var(--color-teal); margin-bottom:12px; font-weight:700;">Real-Time Financial Dashboard</div>
-                                <ul class="slide-check-list">
-                                    <li><span class="check-mark">✓</span>Daily job costing reconciled</li>
-                                    <li><span class="check-mark">✓</span>ServiceTitan ↔ QuickBooks synced</li>
-                                    <li><span class="check-mark">✓</span>Gross margin per tech visible</li>
-                                    <li><span class="check-mark" style="background:rgba(255,197,32,0.2); color:var(--color-gold);">✗</span>No more year-end surprises</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="slide-content">
-                            <h3>Flying blind on job profitability?</h3>
-                            <p>Delayed books = guessed margins. We provide daily QuickBooks job costing with FSM integration.</p>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 4: The All-in-One System -->
-                    <div class="carousel-slide" id="slide4">
-                        <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-4" style="background: linear-gradient(rgba(6,32,15,0.85), rgba(10,53,32,0.95)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; text-align:center; padding:20px; gap:10px;">
-                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:#10b981; font-weight:700; margin-bottom:4px;">One Roof. All Operations.</div>
-                                <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
-                                    <span style="background:rgba(16,185,129,0.25); border:1px solid rgba(16,185,129,0.5); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">24/7 Call Answering</span>
-                                    <span style="background:rgba(0,163,170,0.25); border:1px solid rgba(0,163,170,0.5); color:var(--color-teal); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Dispatch</span>
-                                    <span style="background:rgba(255,197,32,0.25); border:1px solid rgba(255,197,32,0.5); color:var(--color-gold); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Bookkeeping</span>
-                                    <span style="background:rgba(16,185,129,0.25); border:1px solid rgba(16,185,129,0.5); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">QuickBooks</span>
+                            
+                            <!-- Floating Missed Call Tickets -->
+                            <div class="floating-badge badge-1" style="border-left-color: #EF4444;">
+                                <span style="font-size:1.1rem;">☎️</span>
+                                <div>
+                                    <div style="font-weight:700; color:#EF4444; font-size:0.75rem;">Missed Call</div>
+                                    <div style="font-size:0.6rem; color:var(--color-text-secondary);">Potential -$350 job</div>
                                 </div>
-                                <div style="margin-top:8px; font-size:0.7rem; color:rgba(255,255,255,0.7); font-weight:600;">All under one contract · No vendor chaos</div>
+                            </div>
+                            <div class="floating-badge badge-2" style="border-left-color: #F59E0B;">
+                                <span style="font-size:1.1rem;">⚠️</span>
+                                <div>
+                                    <div style="font-weight:700; color:#F59E0B; font-size:0.75rem;">No Live Answer</div>
+                                    <div style="font-size:0.6rem; color:var(--color-text-secondary);">Competitor booked!</div>
+                                </div>
+                            </div>
+
+                            <div class="slide-glass-card">
+                                <h3>Is your trade business leaking cash?</h3>
+                                <p>Voicemails don't book jobs — a live trade-trained expert does. We answer 24/7/365 inside your CRM.</p>
                             </div>
                         </div>
-                        <div class="slide-content">
-                            <h3>The all-in-one trade back-office.</h3>
-                            <p>24/7 live answering + daily bookkeeping under one roof. Stop managing 5 separate vendors.</p>
-                        </div>
-                    </div>
 
-                    <!-- SLIDE 5: The CTA -->
-                    <div class="carousel-slide" id="slide5">
-                        <div class="slide-graphic">
-                            <div class="slide-visual slide-visual-5" style="background: linear-gradient(rgba(15,10,32,0.7), rgba(30,16,64,0.85)), url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=800&q=80') center/cover; flex-direction:column; align-items:center; text-align:center; padding:24px; gap:12px;">
-                                <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" style="max-height:28px; margin-bottom:8px;" alt="CIC Logo">
-                                <div style="font-size:1.5rem; font-weight:900; font-family:var(--font-display); color:#fff; line-height:1.2;">Scale to $2M+</div>
-                                <div style="font-size:0.7rem; color:rgba(255,255,255,0.8); max-width:180px; line-height:1.5; font-weight:600;">Without adding internal staff or micromanaging a call center</div>
-                                <div style="background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover)); color:#fff; padding:10px 24px; border-radius:20px; font-size:0.75rem; font-weight:700; font-family:var(--font-display); margin-top:4px;">Get Free ROI Analysis →</div>
+                        <!-- SLIDE 2 (The Leak Metric) -->
+                        <div class="carousel-slide" id="slide2" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.98) 85%), url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80') center/cover;">
+                            <div class="slide-top-visual">
+                                <span class="stat-pill" style="background-color: rgba(255, 197, 32, 0.15); color: var(--color-gold-hover); border-color: rgba(255,197,32,0.3);">LOST LEADS</span>
+                                <h2 class="slide-hero-number" style="color: var(--color-gold-hover); font-size: 2.8rem; font-weight:900;">62% Hang Up</h2>
+                                <p class="slide-hero-label" style="color: var(--color-text-secondary);">Without Leaving Messages</p>
+                            </div>
+
+                            <!-- Circular SVG 62% Hang-up Gauge -->
+                            <div class="slide-graphic">
+                                <svg class="progress-ring" width="120" height="120" viewBox="0 0 100 100" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.04));">
+                                    <circle cx="50" cy="50" r="40" stroke="#F1F5F9" stroke-width="8" fill="transparent" />
+                                    <!-- stroke-dasharray = 2 * pi * r = 251.2. 62% filled = 251.2 * (1 - 0.62) = 95.45 offset -->
+                                    <circle class="donut-segment" cx="50" cy="50" r="40" stroke="var(--color-gold)" stroke-width="8" fill="transparent" stroke-linecap="round" />
+                                    <text x="50" y="56" font-family="var(--font-display)" font-weight="900" font-size="18" fill="var(--color-text-primary)" text-anchor="middle">62%</text>
+                                </svg>
+                            </div>
+
+                            <div class="slide-glass-card">
+                                <h3>Voicemails are where leads go to die</h3>
+                                <p>Homeowners won't wait for a callback. If a live scheduler doesn't pick up, they instantly call the next trade business.</p>
                             </div>
                         </div>
-                        <div class="slide-content">
-                            <h3>Become the CEO of your business.</h3>
-                            <p>Book your Free Operational ROI Analysis. We'll audit your missed-call rate and bookkeeping stack — free.</p>
-                        </div>
-                    </div>
 
+                        <!-- SLIDE 3 (Sync Bridge) -->
+                        <div class="carousel-slide" id="slide3" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.98) 85%), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80') center/cover;">
+                            <div class="slide-top-visual">
+                                <span class="stat-pill" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16,185,129,0.2);">REAL-TIME SYNC</span>
+                                <h2 class="slide-hero-number" style="color: #10b981; font-size: 2.8rem; font-weight:900;">Sync Bridge</h2>
+                                <p class="slide-hero-label" style="color: var(--color-text-secondary);">ServiceTitan ↔ QuickBooks</p>
+                            </div>
+
+                            <!-- Node diagram -->
+                            <div class="slide-graphic">
+                                <svg width="260" height="90" viewBox="0 0 260 90" style="background: rgba(255,255,255,0.9); border: 1px solid var(--color-slate-light); border-radius: 12px; padding: 10px; box-shadow: var(--shadow-sm); overflow: visible;">
+                                    <!-- ServiceTitan Node -->
+                                    <rect x="10" y="25" width="65" height="35" rx="6" fill="#F8FAFC" stroke="var(--color-slate-light)" stroke-width="1.5" />
+                                    <text x="42" y="46" font-size="7" font-weight="800" fill="var(--color-text-primary)" text-anchor="middle">ServiceTitan</text>
+
+                                    <!-- QuickBooks Node -->
+                                    <rect x="185" y="25" width="65" height="35" rx="6" fill="#F8FAFC" stroke="var(--color-slate-light)" stroke-width="1.5" />
+                                    <text x="217" y="46" font-size="7" font-weight="800" fill="var(--color-text-primary)" text-anchor="middle">QuickBooks</text>
+
+                                    <!-- Center Node: Sync Bridge -->
+                                    <circle cx="130" cy="42" r="18" fill="var(--color-teal)" stroke="#FFFFFF" stroke-width="2" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));" />
+                                    <text x="130" y="45" font-size="7" font-weight="900" fill="#FFFFFF" text-anchor="middle">BRIDGE</text>
+
+                                    <!-- Connecting crawling dotted paths -->
+                                    <path d="M 75 42 L 112 42" stroke="var(--color-teal)" stroke-width="2.5" class="sync-line" />
+                                    <path d="M 148 42 L 185 42" stroke="var(--color-teal)" stroke-width="2.5" class="sync-line" />
+                                </svg>
+                            </div>
+
+                            <div class="slide-glass-card">
+                                <h3>Eliminate double-entry and margins errors</h3>
+                                <p>Stop flying blind. Contractor in Charge reconciles CRM invoices with bank deposits daily so your P&L is always real-time.</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 4 (Back Office Stack) -->
+                        <div class="carousel-slide" id="slide4" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.98) 85%), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80') center/cover;">
+                            <div class="slide-top-visual">
+                                <span class="stat-pill" style="background-color: rgba(99, 102, 241, 0.1); color: #6366f1; border-color: rgba(99,102,241,0.2);">OPERATIONAL STACK</span>
+                                <h2 class="slide-hero-number" style="color: #6366f1; font-size: 2.8rem; font-weight:900;">All-in-One</h2>
+                                <p class="slide-hero-label" style="color: var(--color-text-secondary);">One Contract, Full Coordination</p>
+                            </div>
+
+                            <!-- 3 Mini Operation Cards -->
+                            <div class="slide-graphic" style="display:flex; flex-direction:column; gap:6px; width:100%; align-items:center; margin-bottom:10px;">
+                                <div class="operation-card">
+                                    <span style="font-size:1rem;">📞</span>
+                                    <div style="text-align:left;">
+                                        <div style="font-weight:700; font-size:0.75rem; color:var(--color-text-primary);">24/7 Live CSR Answering</div>
+                                        <div style="font-size:0.6rem; color:var(--color-text-secondary);">Trade-trained expert schedulers</div>
+                                    </div>
+                                </div>
+                                <div class="operation-card">
+                                    <span style="font-size:1rem;">📅</span>
+                                    <div style="text-align:left;">
+                                        <div style="font-weight:700; font-size:0.75rem; color:var(--color-text-primary);">Smart Dispatch Scheduling</div>
+                                        <div style="font-size:0.6rem; color:var(--color-text-secondary);">Optimized technician route planning</div>
+                                    </div>
+                                </div>
+                                <div class="operation-card">
+                                    <span style="font-size:1rem;">📊</span>
+                                    <div style="text-align:left;">
+                                        <div style="font-weight:700; font-size:0.75rem; color:var(--color-text-primary);">Daily QuickBooks Reconciliation</div>
+                                        <div style="font-size:0.6rem; color:var(--color-text-secondary);">Job costing with actual cash deposits</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slide-glass-card">
+                                <h3>Unified home services back-office</h3>
+                                <p>No more vendor management chaos. We handle answering, dispatch, and specialized trade bookkeeping in total sync.</p>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 5 (Scalability CTA) -->
+                        <div class="carousel-slide" id="slide5" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.98) 85%), url('https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&w=800&q=80') center/cover;">
+                            <div class="slide-top-visual">
+                                <span class="stat-pill" style="background-color: rgba(245, 158, 11, 0.1); color: #d97706; border-color: rgba(245,158,11,0.2);">GROWTH LEVERAGE</span>
+                                <h2 class="slide-hero-number" style="color: #d97706; font-size: 2.5rem; font-weight:900;">Scale to $2M+</h2>
+                                <p class="slide-hero-label" style="color: var(--color-text-secondary);">Without Back-Office Overhead</p>
+                            </div>
+
+                            <!-- Rising Bar Chart and Dark Plaque -->
+                            <div class="slide-graphic" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                <svg width="200" height="70" viewBox="0 0 200 70" style="overflow:visible;">
+                                    <rect class="revenue-bar" x="20" y="45" width="20" height="20" rx="3" fill="#E2E8F0" />
+                                    <text x="30" y="77" font-size="6" font-weight="700" fill="var(--color-text-muted)" text-anchor="middle">Yr 1</text>
+                                    
+                                    <rect class="revenue-bar" x="55" y="30" width="20" height="35" rx="3" fill="rgba(0,163,170,0.4)" />
+                                    <text x="65" y="77" font-size="6" font-weight="700" fill="var(--color-text-muted)" text-anchor="middle">Yr 2</text>
+                                    
+                                    <rect class="revenue-bar" x="90" y="15" width="20" height="50" rx="3" fill="var(--color-teal)" />
+                                    <text x="100" y="77" font-size="6" font-weight="700" fill="var(--color-text-muted)" text-anchor="middle">Yr 3</text>
+                                    
+                                    <rect class="revenue-bar" x="125" y="5" width="20" height="60" rx="3" fill="var(--color-gold)" />
+                                    <text x="135" y="77" font-size="6" font-weight="700" fill="var(--color-text-muted)" text-anchor="middle">CIC</text>
+
+                                    <text x="175" y="35" font-family="var(--font-display)" font-weight="900" font-size="14" fill="var(--color-teal)" text-anchor="middle">$2.4M</text>
+                                    <text x="175" y="46" font-size="6" fill="var(--color-text-secondary)" text-anchor="middle">Annual Run</text>
+                                </svg>
+                                
+                                <!-- Logo on Contrast Plaque -->
+                                <div style="background-color: #0E1A1A; padding: 6px 12px; border-radius: 6px; display: inline-flex; align-items: center; margin-top: 4px; box-shadow: var(--shadow-md); border: 1px solid rgba(0,163,170,0.2);">
+                                    <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Contractor in Charge Logo" style="height: 14px;">
+                                </div>
+                            </div>
+
+                            <div class="slide-glass-card" style="text-align: center; width: 100%; box-sizing: border-box;">
+                                <button onclick="goToCalculatorAndToast()" class="lp-btn-primary" style="padding: 8px 14px; font-size: 0.75rem; border-radius: 8px; border:none; background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover)); color:#FFF; font-weight:700; cursor:pointer; width:100%; box-shadow: var(--shadow-sm);">ACTIVATE ROI CALCULATOR →</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="carousel-controls">
+                <!-- LinkedIn Reactions and Actions Panel -->
+                <div style="border-top: 1px solid var(--color-slate-light); padding: 8px 16px; background-color: var(--color-slate-card); display: flex; flex-direction: column; gap: 8px;">
+                    <!-- Reactions Count -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--color-text-muted);">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <span style="display: inline-flex; align-items: center;">
+                                <span style="background: var(--color-teal); color: #fff; width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; border: 1px solid #fff;">👍</span>
+                                <span style="background: #EF4444; color: #fff; width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; border: 1px solid #fff; margin-left: -4px;">❤️</span>
+                                <span style="background: var(--color-gold); color: #fff; width: 14px; height: 14px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; border: 1px solid #fff; margin-left: -4px;">💡</span>
+                            </span>
+                            <span id="reactionsCounter" style="font-weight: 600;">148</span>
+                        </div>
+                        <div style="font-weight: 500;">
+                            <span>18 comments · 5 shares</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Actions Row -->
+                    <div style="border-top: 1px solid #F1F5F9; padding-top: 4px; display: flex; justify-content: space-around; align-items: center;">
+                        <button class="linkedin-action-btn" id="likeButton" onclick="toggleLike()" style="background: none; border: none; display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 4px; font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; transition: var(--transition);">
+                            <span id="likeIcon">👍</span> <span id="likeText">Like</span>
+                        </button>
+                        <button class="linkedin-action-btn" onclick="triggerToast('Comments are disabled for this preview.')" style="background: none; border: none; display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 4px; font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; transition: var(--transition);">
+                            <span>💬</span> Comment
+                        </button>
+                        <button class="linkedin-action-btn" onclick="triggerToast('Share feature simulated in B2B landing page!')" style="background: none; border: none; display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 4px; font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; transition: var(--transition);">
+                            <span>🔁</span> Share
+                        </button>
+                        <button class="linkedin-action-btn" onclick="triggerToast('Asset details sent to clipboard!')" style="background: none; border: none; display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 4px; font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; color: var(--color-text-secondary); cursor: pointer; transition: var(--transition);">
+                            <span>✉️</span> Send
+                        </button>
+                    </div>
+                </div>
+
+                <div class="carousel-controls" style="padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-slate-light); background-color: var(--color-slate-card);">
                     <button class="carousel-btn" onclick="moveCarousel(-1)">← Previous</button>
                     <div class="carousel-indicator">
-                        <div class="indicator-dot active" id="dot1"></div>
-                        <div class="indicator-dot" id="dot2"></div>
-                        <div class="indicator-dot" id="dot3"></div>
-                        <div class="indicator-dot" id="dot4"></div>
-                        <div class="indicator-dot" id="dot5"></div>
+                        <div class="indicator-dot active" id="dot1" onclick="goToSlide(1)" style="cursor:pointer;"></div>
+                        <div class="indicator-dot" id="dot2" onclick="goToSlide(2)" style="cursor:pointer;"></div>
+                        <div class="indicator-dot" id="dot3" onclick="goToSlide(3)" style="cursor:pointer;"></div>
+                        <div class="indicator-dot" id="dot4" onclick="goToSlide(4)" style="cursor:pointer;"></div>
+                        <div class="indicator-dot" id="dot5" onclick="goToSlide(5)" style="cursor:pointer;"></div>
                     </div>
                     <button class="carousel-btn" onclick="moveCarousel(1)">Next Slide →</button>
                 </div>
@@ -1910,7 +2289,7 @@
                     <div style="position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--color-teal), var(--color-gold));"></div>
                     <div class="banner-728-content">
                         <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="banner-logo-mini" style="max-height: 28px;">
-                        <div style="width:1px; height:40px; background:rgba(255,255,255,0.1);"></div>
+                        <div style="width:1px; height:40px; background:var(--color-slate-light);"></div>
                         <div class="banner-728-text">
                             <h3>Still waiting weeks for your profitability reports?</h3>
                             <p>Daily trade-specialized QuickBooks job costing · ServiceTitan integration · Fractional CFO</p>
@@ -1943,7 +2322,7 @@
                 <div>
                     <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--color-text-muted); margin-bottom:10px; font-weight:600;">160 × 600 — Wide Skyscraper</div>
                     <div class="display-banner-160">
-                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" style="max-height:18px; filter:brightness(1);">
+                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="banner-logo-mini" style="max-height:18px;">
                         <div style="text-align:center;">
                             <div class="banner-160-stat">62%</div>
                             <div class="banner-160-label">of callers won't leave a voicemail</div>
@@ -1955,8 +2334,8 @@
                         </div>
                         <div style="width:40px; height:1px; background: linear-gradient(90deg, transparent, var(--color-gold), transparent);"></div>
                         <div style="text-align:center; padding:0 4px;">
-                            <div style="font-size:0.7rem; font-weight:700; color:#fff; font-family:var(--font-display); line-height:1.3;">24/7 Live Trade Answering</div>
-                            <div style="font-size:0.6rem; color:rgba(255,255,255,0.4); margin-top:4px;">Never miss another booked job</div>
+                            <div style="font-size:0.7rem; font-weight:700; color:var(--color-text-primary); font-family:var(--font-display); line-height:1.3;">24/7 Live Trade Answering</div>
+                            <div style="font-size:0.6rem; color:var(--color-text-secondary); margin-top:4px;">Never miss another booked job</div>
                         </div>
                         <a href="#" class="banner-btn-mini" style="width:100%; text-align:center; display:block; background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover));">Get Free Analysis</a>
                     </div>
@@ -2001,7 +2380,7 @@
                             <div class="book-divider"></div>
                             <div class="book-bottom-row">
                                 <div class="book-author">
-                                    By <strong style="color:rgba(255,255,255,0.7);">Lynn Wise</strong><br>
+                                    By <strong style="color:var(--color-teal);">Lynn Wise</strong><br>
                                     Founder, Contractor in Charge<br>
                                     <span style="color:var(--color-gold);">★★★★★</span>
                                 </div>
@@ -2015,7 +2394,7 @@
 
                 <!-- Table of Contents -->
                 <div>
-                    <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:4px;">What's Inside</h3>
+                    <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--color-text-primary); margin-bottom:4px;">What's Inside</h3>
                     <p style="font-size:0.8rem; color:var(--color-text-secondary); margin-bottom:20px;">4 chapters that reveal the exact framework top-performing contractors use to scale profitably.</p>
 
                     <div class="booklet-toc-enhanced">
@@ -2188,6 +2567,11 @@
 
     </main>
 
+    <!-- Floating Exit Fullscreen Button -->
+    <button class="exit-fullscreen-btn" onclick="toggleFullscreen()">Exit Fullscreen Preview</button>
+    <!-- Interactive Toast Notification -->
+    <div id="toast" class="glass-toast"></div>
+
     <!-- INTERACTIVE DASHBOARD JAVASCRIPT -->
     <script>
         // Sidebar Toggle logic
@@ -2204,13 +2588,14 @@
         }
 
         // Core Tab System Switcher
-        function switchTab(tabId) {
+        function switchTab(tabId, event) {
             // Hide all tab panels
             document.querySelectorAll('.tab-panel').forEach(panel => {
                 panel.classList.remove('active');
             });
             // Show selected panel
-            document.getElementById(tabId).classList.add('active');
+            const targetPanel = document.getElementById(tabId);
+            if (targetPanel) targetPanel.classList.add('active');
 
             // Deactivate all sidebar items
             document.querySelectorAll('.nav-item').forEach(item => {
@@ -2218,7 +2603,13 @@
             });
 
             // Set active sidebar item based on target panel
-            event.currentTarget.classList.add('active');
+            const currentEvent = event || window.event;
+            if (currentEvent && currentEvent.currentTarget) {
+                currentEvent.currentTarget.classList.add('active');
+            } else {
+                const targetNavItem = document.querySelector(`.nav-item[onclick*="${tabId}"]`);
+                if (targetNavItem) targetNavItem.classList.add('active');
+            }
 
             // Update title and subtitle
             const titleMap = {
@@ -2231,17 +2622,21 @@
                 'email-campaigns': ['Email Campaigns Showcase', 'Simulated Live Inbox Reading Client Frame']
             };
 
-            document.getElementById('tabTitle').innerText = titleMap[tabId][0];
-            document.getElementById('tabSubtitle').innerText = titleMap[tabId][1];
+            if (titleMap[tabId]) {
+                document.getElementById('tabTitle').innerText = titleMap[tabId][0];
+                document.getElementById('tabSubtitle').innerText = titleMap[tabId][1];
+            }
         }
 
         // Check if Logo Loads, If Fail, Render Text Fallback
         const logoImg = document.getElementById('mainLogo');
         const fallbackTxt = document.getElementById('logoFallback');
-        logoImg.onerror = function() {
-            logoImg.style.display = 'none';
-            fallbackTxt.style.display = 'block';
-        };
+        if (logoImg) {
+            logoImg.onerror = function() {
+                logoImg.style.display = 'none';
+                if (fallbackTxt) fallbackTxt.style.display = 'block';
+            };
+        }
 
         // Interactive ROI Calculator Code
         function calculateROI() {
@@ -2286,6 +2681,54 @@
             // Activate new slide & indicator dot
             document.getElementById('slide' + currentSlide).classList.add('active');
             document.getElementById('dot' + currentSlide).classList.add('active');
+
+            // Slide horizontally via TranslateX
+            const track = document.getElementById('carouselTrack');
+            if (track) track.style.transform = `translateX(-${(currentSlide - 1) * 100}%)`;
+        }
+
+        function goToSlide(n) {
+            // Deactivate current slide & indicator dot
+            document.getElementById('slide' + currentSlide).classList.remove('active');
+            document.getElementById('dot' + currentSlide).classList.remove('active');
+
+            currentSlide = n;
+
+            // Activate new slide & indicator dot
+            document.getElementById('slide' + currentSlide).classList.add('active');
+            document.getElementById('dot' + currentSlide).classList.add('active');
+
+            // Slide horizontally via TranslateX
+            const track = document.getElementById('carouselTrack');
+            if (track) track.style.transform = `translateX(-${(currentSlide - 1) * 100}%)`;
+        }
+
+        let isLiked = false;
+        function toggleLike() {
+            const counter = document.getElementById('reactionsCounter');
+            const button = document.getElementById('likeButton');
+            const text = document.getElementById('likeText');
+            if (!isLiked) {
+                isLiked = true;
+                if (counter) counter.innerText = '149';
+                if (button) button.style.color = 'var(--color-teal)';
+                if (text) text.innerText = 'Liked';
+            } else {
+                isLiked = false;
+                if (counter) counter.innerText = '148';
+                if (button) button.style.color = 'var(--color-text-secondary)';
+                if (text) text.innerText = 'Like';
+            }
+        }
+
+        function triggerToast(msg) {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
 
         // Email Client Render Databases
@@ -2308,7 +2751,7 @@
                        </div>
                        <p>Contractor in Charge solves this. We provide 24/7/365 live agent call answering and dispatch, built specifically for trades. We log into your ServiceTitan, Housecall Pro, or CRM and book the job live on the spot.</p>
                        <div class="email-cta-box">
-                           <a href="#calculator" class="lp-btn-primary" style="text-decoration: none;">Get Your Free ROI Analysis</a>
+                           <a href="javascript:void(0)" onclick="goToCalculatorAndToast()" class="lp-btn-primary" style="text-decoration: none;">Get Your Free ROI Analysis</a>
                        </div>
                        <p>Best,<br><b>Lynn Wise</b><br>Founder, Contractor in Charge</p>`
             },
@@ -2328,7 +2771,7 @@
                        </div>
                        <p>No hiring. No training. No management headaches. Just booked jobs. Let's look at your dispatch numbers together and see where we can optimize.</p>
                        <div class="email-cta-box">
-                           <a href="#" class="lp-btn-primary" style="text-decoration: none;">Schedule a 15-Min Call</a>
+                           <a href="javascript:void(0)" onclick="triggerToast('Simulation: Calendly booking link activated!')" class="lp-btn-primary" style="text-decoration: none;">Schedule a 15-Min Call</a>
                        </div>
                        <p>Best,<br><b>Lynn Wise</b><br>Founder, Contractor in Charge</p>`
             },
@@ -2347,7 +2790,7 @@
                        </div>
                        <p>Total clarity. Zero guesswork. Let's clean up your books and align your systems.</p>
                        <div class="email-cta-box">
-                           <a href="#" class="lp-btn-primary" style="text-decoration: none;">Book Systems Assessment</a>
+                           <a href="javascript:void(0)" onclick="triggerToast('Simulation: Systems assessment requested!')" class="lp-btn-primary" style="text-decoration: none;">Book Systems Assessment</a>
                        </div>
                        <p>Best,<br><b>Lynn Wise</b><br>Founder, Contractor in Charge</p>`
             },
@@ -2362,7 +2805,7 @@
                        <p><b>Action Item:</b> Put a test call into your business tonight at 7:30 PM. See how long it takes for a live person to pick up. If it goes to voicemail, remember: 62% of those callers hang up and call the next listing.</p>
                        <p>In the next email, I’m going to share the single financial metric that 90% of home service owners get completely wrong—and how it’s stunting their growth.</p>
                        <div class="email-cta-box">
-                           <a href="#" class="lp-btn-primary" style="text-decoration: none;">Download My Playbook</a>
+                           <a href="javascript:void(0)" onclick="triggerToast('Downloading playbook PDF!')" class="lp-btn-primary" style="text-decoration: none;">Download My Playbook</a>
                        </div>
                        <p>Best,<br><b>Lynn Wise</b><br>Founder, Contractor in Charge</p>`
             },
@@ -2377,7 +2820,7 @@
                        </div>
                        <p>Ready to see your real margins? Let’s do a Free Profitability Audit on your last 3 months of books.</p>
                        <div class="email-cta-box">
-                           <a href="#" class="lp-btn-primary" style="text-decoration: none;">Get Free Profit Audit</a>
+                           <a href="javascript:void(0)" onclick="triggerToast('Simulation: Free Profit Audit booked!')" class="lp-btn-primary" style="text-decoration: none;">Get Free Profit Audit</a>
                        </div>
                        <p>Best,<br><b>Lynn Wise</b><br>Founder, Contractor in Charge</p>`
             },
@@ -2391,25 +2834,44 @@
                        </div>
                        <p>Our live agents answer calls, dispatch your techs, and our accounting team reconciles bookings in QuickBooks daily. Stop managing a chaotic web of vendors.</p>
                        <div class="email-cta-box">
-                           <a href="#" class="lp-btn-primary" style="text-decoration: none;">Book Systems Consultation</a>
+                           <a href="javascript:void(0)" onclick="triggerToast('Simulation: Systems consultation requested!')" class="lp-btn-primary" style="text-decoration: none;">Book Systems Consultation</a>
                        </div>
                        <p>Best,<br><b>Lynn Wise</b><br>Founder, Contractor in Charge</p>`
             }
         };
 
-        function loadEmail(emailKey) {
+        function loadEmail(emailKey, event) {
             // Deactivate current active list items
             document.querySelectorAll('.email-list-item').forEach(item => {
                 item.classList.remove('active');
             });
 
             // Activate target item
-            event.currentTarget.classList.add('active');
+            const currentEvent = event || window.event;
+            if (currentEvent && currentEvent.currentTarget) {
+                currentEvent.currentTarget.classList.add('active');
+            } else {
+                const targetItem = document.querySelector(`.email-list-item[onclick*="${emailKey}"]`);
+                if (targetItem) targetItem.classList.add('active');
+            }
 
             // Render email subject & body
             const targetMail = emailDb[emailKey];
-            document.getElementById('mailSubject').innerText = targetMail.subject;
-            document.getElementById('mailRenderArea').innerHTML = targetMail.body;
+            if (targetMail) {
+                document.getElementById('mailSubject').innerText = targetMail.subject;
+                document.getElementById('mailRenderArea').innerHTML = targetMail.body;
+            }
+        }
+
+        function goToCalculatorAndToast() {
+            switchTab('landing-page');
+            setTimeout(() => {
+                triggerToast('🚀 Success! B2B ROI Calculator Activated!');
+            }, 400);
+        }
+
+        function toggleFullscreen() {
+            document.body.classList.toggle('fullscreen-preview');
         }
     </script>
 </body>
