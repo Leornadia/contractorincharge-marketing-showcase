@@ -634,24 +634,298 @@
             z-index: 2;
         }
 
-        .slide-graphic-placeholder {
+        .slide-graphic {
             flex-grow: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 24px;
+            position: relative;
         }
 
-        .graphic-badge {
-            background-color: rgba(255, 197, 32, 0.1);
-            color: var(--color-gold);
-            border: 1px dashed var(--color-gold);
-            padding: 12px 24px;
-            border-radius: var(--border-radius-sm);
+        /* Slide visual art panels */
+        .slide-visual {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .slide-visual-1 {
+            background: linear-gradient(135deg, #0b1a1a 0%, #0f3535 100%);
+            border: 1px solid rgba(0,163,170,0.3);
+        }
+        .slide-visual-2 {
+            background: linear-gradient(135deg, #1a1000 0%, #3d2800 100%);
+            border: 1px solid rgba(255,197,32,0.3);
+        }
+        .slide-visual-3 {
+            background: linear-gradient(135deg, #10151C 0%, #1a2535 100%);
+            border: 1px solid rgba(0,163,170,0.2);
+        }
+        .slide-visual-4 {
+            background: linear-gradient(135deg, #06200f 0%, #0a3520 100%);
+            border: 1px solid rgba(16,185,129,0.3);
+        }
+        .slide-visual-5 {
+            background: linear-gradient(135deg, #0f0a20 0%, #1e1040 100%);
+            border: 1px solid rgba(139,92,246,0.3);
+        }
+        .stat-big {
             font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+        .stat-unit { font-size: 2rem; }
+        .stat-label {
+            font-size: 0.7rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+        .slide-icon-large {
+            font-size: 5rem;
+            line-height: 1;
+        }
+        .slide-icon-row {
+            display: flex;
+            gap: 12px;
+            font-size: 2.5rem;
+        }
+        .slide-check-list {
+            text-align: left;
+            padding: 0 16px;
+        }
+        .slide-check-list li {
+            list-style: none;
+            padding: 6px 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .check-mark {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            flex-shrink: 0;
+        }
+        .slide-logo-lockup {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .slide-logo-lockup img {
+            max-height: 32px;
+        }
+        .slide-tagline {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-gold);
+            font-weight: 700;
+        }
+        /* Enhanced e-book cover */
+        .booklet-cover-large {
+            width: 200px;
+            min-height: 280px;
+            background: linear-gradient(160deg, #0d1f1f 0%, #061010 100%);
+            border: 2px solid var(--color-teal);
+            border-radius: 6px 2px 2px 6px;
+            box-shadow: 8px 8px 30px rgba(0,0,0,0.7), inset -6px 0 12px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .booklet-cover-large::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-gold));
+        }
+        .booklet-cover-large::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 10px;
+            background: linear-gradient(to left, rgba(0,163,170,0.08), transparent);
+        }
+        .book-series-label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--color-gold);
+            font-weight: 700;
+            font-family: var(--font-display);
+        }
+        .book-main-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.25;
+            margin: 12px 0;
+        }
+        .book-subtitle {
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .book-divider {
+            height: 1px;
+            background: linear-gradient(90deg, var(--color-teal), transparent);
+            margin: 8px 0;
+        }
+        .book-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .book-author {
+            font-size: 0.55rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.5;
+        }
+        .book-logo-bottom {
+            max-height: 18px;
+        }
+        .booklet-toc-enhanced .toc-chapter {
+            display: flex;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            align-items: flex-start;
+        }
+        .booklet-toc-enhanced .toc-chapter:last-child { border-bottom: none; }
+        .toc-num {
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover));
+            color: #fff;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .toc-info h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+        .toc-info p {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+        .booklet-download-cta {
+            margin-top: 24px;
+            background: linear-gradient(135deg, rgba(0,163,170,0.1), rgba(0,163,170,0.05));
+            border: 1px solid rgba(0,163,170,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .booklet-download-cta p {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+        /* Google Ads search bar mock */
+        .google-search-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 6px rgba(32,33,36,0.1);
+        }
+        .google-search-bar span {
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            color: #202124;
+            flex-grow: 1;
+        }
+        .google-search-bar svg { color: #9aa0a6; flex-shrink: 0; }
+        .google-result-count {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #70757a;
+            margin-bottom: 16px;
+        }
+        /* Third banner - skyscraper */
+        .display-banner-160 {
+            width: 160px;
+            height: 600px;
+            background: linear-gradient(180deg, var(--color-slate-card) 0%, #080c10 100%);
+            border: 2px solid var(--color-teal);
+            border-radius: var(--border-radius-md);
+            padding: 20px 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .display-banner-160:hover { border-color: var(--color-gold); }
+        .display-banner-160::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-gold));
+        }
+        .banner-160-stat {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-teal);
+            text-align: center;
+            line-height: 1;
+        }
+        .banner-160-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-secondary);
+            text-align: center;
+            margin-top: 4px;
+        }
+        .banner-flex-row {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .slide-content h3 {
@@ -1299,19 +1573,19 @@
                 </div>
                 <div class="alert-content">
                     <h4>Material 2: Social Media Carousel Ad Set</h4>
-                    <p>Designed for Facebook and LinkedIn feeds targeting HVAC, Plumbing, and Electrical owners. Click "Next Slide" to interactively view the full 5-card carousel sequence styled in Contractor in Charge brand guidelines.</p>
+                    <p>Designed for Facebook and LinkedIn feeds targeting HVAC, Plumbing, and Electrical owners. Click <strong>Next Slide →</strong> to step through all 5 branded cards in sequence.</p>
                 </div>
             </div>
 
-            <!-- Ad Wrapper -->
             <div class="carousel-view">
+                <!-- Simulated Facebook Ad Header -->
                 <div class="carousel-ad-header">
                     <div class="avatar-circle">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--color-teal)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" style="height:22px; border-radius:4px;" alt="CIC">
                     </div>
                     <div class="carousel-header-info">
                         <h4>Contractor in Charge</h4>
-                        <p>Sponsored</p>
+                        <p>Sponsored · 👥 Home Services Owners</p>
                     </div>
                 </div>
                 <div class="carousel-body-text">
@@ -1319,60 +1593,100 @@
                 </div>
 
                 <div class="carousel-slides-container">
-                    <!-- Slide 1 -->
+
+                    <!-- SLIDE 1: The Revenue Leak -->
                     <div class="carousel-slide active" id="slide1">
-                        <div class="slide-graphic-placeholder">
-                            <div class="graphic-badge">💧 Leaky Pipe dripping gold coins</div>
+                        <div class="slide-graphic">
+                            <div class="slide-visual slide-visual-1" style="flex-direction:column; text-align:center; padding:24px;">
+                                <div class="stat-big" style="color:#FFC520;">$20K<span class="stat-unit" style="color:rgba(255,197,32,0.6);">+</span></div>
+                                <div class="stat-label" style="color:rgba(255,197,32,0.8);">Leaking every month</div>
+                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.5); max-width:200px; line-height:1.5;">Average revenue loss from missed after-hours calls in home service businesses</div>
+                                <div style="position:absolute; bottom:16px; right:16px; opacity:0.15; font-size:5rem;">💧</div>
+                            </div>
                         </div>
                         <div class="slide-content">
                             <h3>Is your trade business leaking $20,000+ a month?</h3>
-                            <p>Voicemails don't book jobs. If you missed a call today, you just bought your competitor dinner.</p>
+                            <p>Voicemails don't book jobs. If you missed a call today, you just handed your competitor a $350 ticket.</p>
                         </div>
                     </div>
-                    <!-- Slide 2 -->
+
+                    <!-- SLIDE 2: The 62% Stat -->
                     <div class="carousel-slide" id="slide2">
-                        <div class="slide-graphic-placeholder">
-                            <div class="graphic-badge">📞 Frustrated homeowner on phone</div>
+                        <div class="slide-graphic">
+                            <div class="slide-visual slide-visual-2" style="flex-direction:column; text-align:center; padding:24px;">
+                                <div class="stat-big" style="color:#FFC520;">62<span class="stat-unit" style="color:rgba(255,197,32,0.7);">%</span></div>
+                                <div class="stat-label" style="color:rgba(255,197,32,0.8);">Won't leave a voicemail</div>
+                                <div style="margin-top:16px; font-size:0.75rem; color:rgba(255,255,255,0.5); max-width:200px; line-height:1.5;">Of homeowners will hang up and call the next Google listing if a live person doesn't answer</div>
+                                <div style="position:absolute; bottom:16px; right:16px; opacity:0.12; font-size:5rem;">📞</div>
+                            </div>
                         </div>
                         <div class="slide-content">
-                            <h3>62% of callers won't wait.</h3>
-                            <p>6 out of 10 homeowners hang up immediately if they hear voicemail. They want a tech booked now.</p>
+                            <h3>62% of callers won't wait for a callback.</h3>
+                            <p>Your competitor answered. Your voicemail didn't. That's a booked job you'll never know you lost.</p>
                         </div>
                     </div>
-                    <!-- Slide 3 -->
+
+                    <!-- SLIDE 3: The Bookkeeping Problem -->
                     <div class="carousel-slide" id="slide3">
-                        <div class="slide-graphic-placeholder">
-                            <div class="graphic-badge">📊 Stressed tech looking at sheets</div>
+                        <div class="slide-graphic">
+                            <div class="slide-visual slide-visual-3" style="flex-direction:column; padding:20px;">
+                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:var(--color-teal); margin-bottom:12px; font-weight:700;">Real-Time Financial Dashboard</div>
+                                <ul class="slide-check-list">
+                                    <li><span class="check-mark">✓</span>Daily job costing reconciled</li>
+                                    <li><span class="check-mark">✓</span>ServiceTitan ↔ QuickBooks synced</li>
+                                    <li><span class="check-mark">✓</span>Gross margin per tech visible</li>
+                                    <li><span class="check-mark" style="background:rgba(255,197,32,0.2); color:var(--color-gold);">✗</span>No more year-end surprises</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="slide-content">
                             <h3>Flying blind on job profitability?</h3>
-                            <p>Late books mean you're guessing your margins. Get daily QuickBooks accounting and job costing.</p>
+                            <p>Delayed books = guessed margins. We provide daily QuickBooks job costing with FSM integration.</p>
                         </div>
                     </div>
-                    <!-- Slide 4 -->
+
+                    <!-- SLIDE 4: The All-in-One System -->
                     <div class="carousel-slide" id="slide4">
-                        <div class="slide-graphic-placeholder">
-                            <div class="graphic-badge">⚡ Clean operational dashboard</div>
+                        <div class="slide-graphic">
+                            <div class="slide-visual slide-visual-4" style="flex-direction:column; text-align:center; padding:20px; gap:10px;">
+                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:2px; color:#10b981; font-weight:700; margin-bottom:4px;">One Roof. All Operations.</div>
+                                <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
+                                    <span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">24/7 Call Answering</span>
+                                    <span style="background:rgba(0,163,170,0.15); border:1px solid rgba(0,163,170,0.3); color:var(--color-teal); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Dispatch</span>
+                                    <span style="background:rgba(255,197,32,0.15); border:1px solid rgba(255,197,32,0.3); color:var(--color-gold); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Bookkeeping</span>
+                                    <span style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981; border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">QuickBooks</span>
+                                    <span style="background:rgba(0,163,170,0.15); border:1px solid rgba(0,163,170,0.3); color:var(--color-teal); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Fractional CFO</span>
+                                    <span style="background:rgba(255,197,32,0.15); border:1px solid rgba(255,197,32,0.3); color:var(--color-gold); border-radius:20px; padding:5px 12px; font-size:0.7rem; font-weight:700;">Lead Conversion</span>
+                                </div>
+                                <div style="margin-top:8px; font-size:0.7rem; color:rgba(255,255,255,0.4);">All under one contract · No vendor chaos</div>
+                            </div>
                         </div>
                         <div class="slide-content">
                             <h3>The all-in-one trade back-office.</h3>
-                            <p>24/7 call answering + daily bookkeeping under one roof. Zero recruitment stress.</p>
+                            <p>24/7 live answering + daily bookkeeping under one roof. Stop managing 5 separate vendors.</p>
                         </div>
                     </div>
-                    <!-- Slide 5 -->
+
+                    <!-- SLIDE 5: The CTA -->
                     <div class="carousel-slide" id="slide5">
-                        <div class="slide-graphic-placeholder">
-                            <div class="graphic-badge">🏆 Smiling trade owner as CEO</div>
+                        <div class="slide-graphic">
+                            <div class="slide-visual slide-visual-5" style="flex-direction:column; align-items:center; text-align:center; padding:24px; gap:12px;">
+                                <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" style="max-height:28px; margin-bottom:8px;" alt="CIC Logo">
+                                <div style="font-size:1.5rem; font-weight:900; font-family:var(--font-display); color:#fff; line-height:1.2;">Scale to $2M+</div>
+                                <div style="font-size:0.7rem; color:rgba(255,255,255,0.5); max-width:180px; line-height:1.5;">Without adding internal staff or micromanaging a call center</div>
+                                <div style="background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover)); color:#fff; padding:10px 24px; border-radius:20px; font-size:0.75rem; font-weight:700; font-family:var(--font-display); margin-top:4px;">Get Free ROI Analysis →</div>
+                            </div>
                         </div>
                         <div class="slide-content">
                             <h3>Become the CEO of your business.</h3>
-                            <p>Tap below to schedule your Free Operational ROI Analysis and reclaim 3+ hours daily.</p>
+                            <p>Book your Free Operational ROI Analysis. We'll audit your missed-call rate and bookkeeping stack — free.</p>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="carousel-controls">
-                    <button class="carousel-btn" onclick="moveCarousel(-1)">Previous</button>
+                    <button class="carousel-btn" onclick="moveCarousel(-1)">← Previous</button>
                     <div class="carousel-indicator">
                         <div class="indicator-dot active" id="dot1"></div>
                         <div class="indicator-dot" id="dot2"></div>
@@ -1380,7 +1694,7 @@
                         <div class="indicator-dot" id="dot4"></div>
                         <div class="indicator-dot" id="dot5"></div>
                     </div>
-                    <button class="carousel-btn" onclick="moveCarousel(1)">Next Slide</button>
+                    <button class="carousel-btn" onclick="moveCarousel(1)">Next Slide →</button>
                 </div>
             </div>
         </section>
@@ -1393,19 +1707,36 @@
                 </div>
                 <div class="alert-content">
                     <h4>Material 3: High-Intent Google Search Ads (PPC)</h4>
-                    <p>These search ads capture trade business owners exactly when they are searching for "answering services" or "QuickBooks bookkeeping". Rendered below exactly as they appear on Google desktop search results.</p>
+                    <p>These search ads capture trade business owners at peak buying intent. Rendered pixel-perfect as they appear in Google Desktop Search Results — including ad extensions.</p>
                 </div>
             </div>
 
             <div class="google-search-mock">
+                <!-- Simulated Google Search Bar -->
+                <div class="google-search-bar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span>24/7 answering service for contractors</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4285f4" stroke-width="2"><circle cx="12" cy="11" r="3"/><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/></svg>
+                </div>
+                <div class="google-result-count">About 4,820,000 results (0.43 seconds)</div>
+
                 <!-- Ad 1 -->
                 <div class="google-ad-result">
                     <div class="google-ad-header">
-                        <span class="ad-pill">Ad</span>
-                        <span>https://www.contractorincharge.com/live-answering</span>
+                        <div style="width:18px; height:18px; border-radius:50%; overflow:hidden; flex-shrink:0;">
+                            <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/690eff329640a4d34269fe42_contractor%2032_32%20(1).svg" style="width:100%; height:100%; object-fit:cover;" alt="" onerror="this.style.display='none'">
+                        </div>
+                        <span style="font-weight:600;">contractorincharge.com</span>
+                        <span class="ad-pill">Sponsored</span>
                     </div>
-                    <a href="#" class="google-ad-link">24/7 Trade Answering Service | Built For Plumbers & HVAC</a>
-                    <p class="google-ad-snippet">Stop losing valuable emergency calls. Our trained CSRs answer 24/7 and book directly into ServiceTitan & Housecall Pro. Scale your trade business booking rate by 40% starting today. Never miss another lead.</p>
+                    <a href="#" class="google-ad-link">24/7 Live Trade Answering Service — Never Miss a Job Again</a>
+                    <p class="google-ad-snippet">Stop losing HVAC, plumbing & electrical jobs to voicemail. Our trained CSRs answer <b>24/7/365</b> and book directly into <b>ServiceTitan, Housecall Pro</b> & more. Scale booking rate by 40%. Free ROI Analysis.</p>
+                    <!-- Ad Extensions -->
+                    <div style="display:flex; gap:16px; margin-top:8px; flex-wrap:wrap;">
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">📞 Free ROI Analysis</a>
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">🗓 Book a Strategy Call</a>
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">⭐ See Client Results</a>
+                    </div>
                 </div>
 
                 <hr style="border: 0; border-top: 1px solid #E5E7EB; margin: 20px 0;">
@@ -1413,11 +1744,38 @@
                 <!-- Ad 2 -->
                 <div class="google-ad-result">
                     <div class="google-ad-header">
-                        <span class="ad-pill">Ad</span>
-                        <span>https://www.contractorincharge.com/bookkeeping</span>
+                        <div style="width:18px; height:18px; border-radius:50%; background:#00a2a9; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+                            <span style="color:#fff; font-size:0.5rem; font-weight:900;">CIC</span>
+                        </div>
+                        <span style="font-weight:600;">contractorincharge.com</span>
+                        <span class="ad-pill">Sponsored</span>
                     </div>
-                    <a href="#" class="google-ad-link">Trade-Specific Bookkeeping | ServiceTitan & QBO Experts</a>
-                    <p class="google-ad-snippet">Accurate job costing, daily reconciliations, and accrual-based financials without internal salary overhead. Stop flying blind on your margins. Partner with accountants who speak plumbing and HVAC.</p>
+                    <a href="#" class="google-ad-link">Trade-Specific Bookkeeping | ServiceTitan & QuickBooks Experts</a>
+                    <p class="google-ad-snippet">Accurate job costing, daily reconciliations & accrual-based P&amp;L — no internal salary overhead. Know your exact margin on every job. Specialists who speak <b>HVAC, Plumbing & Electrical</b>.</p>
+                    <div style="display:flex; gap:16px; margin-top:8px; flex-wrap:wrap;">
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">📊 Free Profit Audit</a>
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">🔗 ServiceTitan Integration</a>
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">💼 Fractional CFO Services</a>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #E5E7EB; margin: 20px 0;">
+
+                <!-- Ad 3 -->
+                <div class="google-ad-result">
+                    <div class="google-ad-header">
+                        <div style="width:18px; height:18px; border-radius:50%; background:#f2be31; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+                            <span style="color:#0e1a1a; font-size:0.5rem; font-weight:900;">CIC</span>
+                        </div>
+                        <span style="font-weight:600;">contractorincharge.com</span>
+                        <span class="ad-pill">Sponsored</span>
+                    </div>
+                    <a href="#" class="google-ad-link">Contractor in Charge — Operational Partner for $500K–$3M Trade Businesses</a>
+                    <p class="google-ad-snippet">The only back-office partner that combines 24/7 call answering, live dispatch, daily bookkeeping, and fractional CFO — under one contract. Join 200+ contractors who stopped flying blind.</p>
+                    <div style="display:flex; gap:16px; margin-top:8px; flex-wrap:wrap;">
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">🚀 Get Started Today</a>
+                        <a href="#" style="font-size:0.8rem; color:#1A0DAB; text-decoration:none; border:1px solid #dadce0; border-radius:3px; padding:3px 8px;">💡 See Pricing</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1429,35 +1787,68 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
                 </div>
                 <div class="alert-content">
-                    <h4>Material 4: Retargeting Display Banner Ads</h4>
-                    <p>Retargeting ads designed to re-engage site visitors who did not complete a booking. Styled in the brand's premium dark-slate aesthetic with glowing teal borders and yellow highlights.</p>
+                    <h4>Material 4: Retargeting Display Banner Ad Set</h4>
+                    <p>Three IAB-standard banner formats (300×250, 728×90, 160×600) built for Google Display Network retargeting. Dark-slate brand aesthetic with teal glow borders and gold accents.</p>
                 </div>
             </div>
 
-            <div class="banner-flex">
-                <!-- 300x250 Banner -->
-                <div class="display-banner-300">
-                    <div class="banner-title-area">
-                        <h5>Missed Calls = Lost Revenue</h5>
-                        <h2>Every Missed Call is a $350 Ticket to a Competitor.</h2>
+            <!-- 728x90 Leaderboard -->
+            <div style="margin-bottom:40px;">
+                <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--color-text-muted); margin-bottom:10px; font-weight:600;">728 × 90 — Leaderboard Banner</div>
+                <div class="display-banner-728" style="position:relative; overflow:hidden;">
+                    <div style="position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--color-teal), var(--color-gold));"></div>
+                    <div class="banner-728-content">
+                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="banner-logo-mini" style="max-height: 28px;">
+                        <div style="width:1px; height:40px; background:rgba(255,255,255,0.1);"></div>
+                        <div class="banner-728-text">
+                            <h3>Still waiting weeks for your profitability reports?</h3>
+                            <p>Daily trade-specialized QuickBooks job costing · ServiceTitan integration · Fractional CFO</p>
+                        </div>
                     </div>
-                    <p class="banner-body-text">Capture every weekend and after-hours lead with trade-specialized agents.</p>
-                    <div class="banner-footer">
-                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="banner-logo-mini">
-                        <a href="#" class="banner-btn-mini">Capture Leads</a>
+                    <a href="#" class="banner-btn-mini" style="padding:10px 20px; white-space:nowrap;">See My Real Profits →</a>
+                </div>
+            </div>
+
+            <!-- 300x250 + 160x600 side by side -->
+            <div class="banner-flex-row">
+                <!-- 300x250 Medium Rectangle -->
+                <div>
+                    <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--color-text-muted); margin-bottom:10px; font-weight:600;">300 × 250 — Medium Rectangle</div>
+                    <div class="display-banner-300">
+                        <div style="position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, var(--color-teal), var(--color-gold));"></div>
+                        <div class="banner-title-area">
+                            <h5>⚠️ Missed Calls = Lost Revenue</h5>
+                            <h2>Every Missed Call is a <span style="color:var(--color-gold);">$350</span> Ticket to a Competitor.</h2>
+                        </div>
+                        <p class="banner-body-text">Capture every weekend and after-hours lead with trade-specialized 24/7 live agents. Your calls → booked jobs.</p>
+                        <div class="banner-footer">
+                            <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="banner-logo-mini">
+                            <a href="#" class="banner-btn-mini" style="background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover));">Capture Leads →</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 728x90 Banner -->
-                <div class="display-banner-728">
-                    <div class="banner-728-content">
-                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="banner-logo-mini" style="max-height: 28px;">
-                        <div class="banner-728-text">
-                            <h3>Still waiting weeks for your profitability reports?</h3>
-                            <p>Get daily, trade-specialized QuickBooks bookkeeping & job costing.</p>
+                <!-- 160x600 Skyscraper -->
+                <div>
+                    <div style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--color-text-muted); margin-bottom:10px; font-weight:600;">160 × 600 — Wide Skyscraper</div>
+                    <div class="display-banner-160">
+                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" style="max-height:18px; filter:brightness(1);">
+                        <div style="text-align:center;">
+                            <div class="banner-160-stat">62%</div>
+                            <div class="banner-160-label">of callers won't leave a voicemail</div>
                         </div>
+                        <div style="width:40px; height:1px; background: linear-gradient(90deg, transparent, var(--color-teal), transparent);"></div>
+                        <div style="text-align:center;">
+                            <div class="banner-160-stat" style="font-size:1.8rem; color:var(--color-gold);">$350</div>
+                            <div class="banner-160-label">average missed job value</div>
+                        </div>
+                        <div style="width:40px; height:1px; background: linear-gradient(90deg, transparent, var(--color-gold), transparent);"></div>
+                        <div style="text-align:center; padding:0 4px;">
+                            <div style="font-size:0.7rem; font-weight:700; color:#fff; font-family:var(--font-display); line-height:1.3;">24/7 Live Trade Answering</div>
+                            <div style="font-size:0.6rem; color:rgba(255,255,255,0.4); margin-top:4px;">Never miss another booked job</div>
+                        </div>
+                        <a href="#" class="banner-btn-mini" style="width:100%; text-align:center; display:block; background: linear-gradient(135deg, var(--color-teal), var(--color-teal-hover));">Get Free Analysis</a>
                     </div>
-                    <a href="#" class="banner-btn-mini" style="padding: 10px 20px;">See My Real Profits</a>
                 </div>
             </div>
         </section>
@@ -1469,56 +1860,76 @@
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5L4 3A2.5 2.5 0 0 1 6.5 0.5H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"/></svg>
                 </div>
                 <div class="alert-content">
-                    <h4>Material 5: E-book Lead Magnet Blueprint</h4>
-                    <p>Designed to capture email addresses of trade owners via inbound funnels. A visual booklet mockup showing the chapters that deliver core insights on scaling from $500K to $2M+.</p>
+                    <h4>Material 5: E-book Lead Magnet — "The Contractor's Growth Playbook"</h4>
+                    <p>Gate-downloadable guide capturing trade business owners via inbound funnels. Delivers high-value insights on scaling from $500K to $2M+ — designed to trigger the email nurture sequence.</p>
                 </div>
             </div>
 
-            <div class="booklet-layout">
-                <div class="booklet-left">
-                    <div class="booklet-cover">
-                        <h6>The Contractor's Series</h6>
-                        <h4>How to Scale from $500K to $2M+ Without Headcount</h4>
-                        <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="Logo" class="book-logo">
+            <div style="display:grid; grid-template-columns: 1fr 1.4fr; gap:40px; max-width:800px; margin: 0 auto; align-items:start;">
+
+                <!-- Book Cover -->
+                <div style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+                    <div class="booklet-cover-large">
+                        <div>
+                            <div class="book-series-label">The Contractor's Series · Volume I</div>
+                            <div class="book-main-title">How to Scale from $500K to $2M+ Without Adding Headcount</div>
+                            <div class="book-subtitle">The definitive operational playbook for HVAC, Plumbing &amp; Electrical business owners ready to grow without growing their team.</div>
+                        </div>
+                        <div>
+                            <div class="book-divider"></div>
+                            <div class="book-bottom-row">
+                                <div class="book-author">
+                                    By <strong style="color:rgba(255,255,255,0.7);">Lynn Wise</strong><br>
+                                    Founder, Contractor in Charge<br>
+                                    <span style="color:var(--color-gold);">★★★★★</span>
+                                </div>
+                                <img src="https://cdn.prod.website-files.com/68f2a4efc577e82dbc3499a3/698c9e9bd185dc488ec47e6b_contactor-in-charge-v2-logo-variant-inverted-rgb-900px-w-72ppi.avif" alt="CIC Logo" class="book-logo-bottom">
+                            </div>
+                        </div>
                     </div>
-                    <div style="font-size: 0.7rem; color: var(--color-text-muted); margin-top: 20px; text-align: center;">
-                        Industry Report & Playbook
-                    </div>
+                    <div style="font-size:0.7rem; color:var(--color-text-muted); text-align:center;">Free Download · PDF · 42 Pages</div>
+                    <a href="#" class="lp-btn-primary" style="font-size:0.85rem; padding:12px 24px; text-decoration:none;">📥 Download Free Playbook</a>
                 </div>
-                
-                <div class="booklet-right">
-                    <h3>Table of Contents</h3>
-                    
-                    <div class="chapter-line">
-                        <div class="chapter-number">1</div>
-                        <div class="chapter-title">
-                            <h5>The 'Leaky Bucket' Analysis</h5>
-                            <p>Measuring the real cash impact of missed after-hours and weekend calls.</p>
+
+                <!-- Table of Contents -->
+                <div>
+                    <h3 style="font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:4px;">What's Inside</h3>
+                    <p style="font-size:0.8rem; color:var(--color-text-secondary); margin-bottom:20px;">4 chapters that reveal the exact framework top-performing contractors use to scale profitably.</p>
+
+                    <div class="booklet-toc-enhanced">
+                        <div class="toc-chapter">
+                            <div class="toc-num">1</div>
+                            <div class="toc-info">
+                                <h5>The 'Leaky Bucket' Revenue Analysis</h5>
+                                <p>How to calculate the exact dollar value of every missed call — and why after-hours is your highest-margin opportunity.</p>
+                            </div>
+                        </div>
+                        <div class="toc-chapter">
+                            <div class="toc-num">2</div>
+                            <div class="toc-info">
+                                <h5>The ServiceTitan Integration Trap</h5>
+                                <p>Why 9 out of 10 trade bookkeepers fail to correctly reconcile FSM dispatch data — and the hidden cash this creates.</p>
+                            </div>
+                        </div>
+                        <div class="toc-chapter">
+                            <div class="toc-num">3</div>
+                            <div class="toc-info">
+                                <h5>Flying Blind vs. Daily Financial Scorecards</h5>
+                                <p>Cash vs. accrual: why the difference matters when pricing jobs, paying taxes, and securing a line of credit.</p>
+                            </div>
+                        </div>
+                        <div class="toc-chapter">
+                            <div class="toc-num">4</div>
+                            <div class="toc-info">
+                                <h5>The Path to CEO: Reclaim 3 Hours a Day</h5>
+                                <p>The operational playbook for removing yourself from dispatching, admin, and bookkeeping — without losing control.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="chapter-line">
-                        <div class="chapter-number">2</div>
-                        <div class="chapter-title">
-                            <h5>The ServiceTitan Integration Trap</h5>
-                            <p>Why standard bookkeepers fail to reconcile FSM softwares correctly.</p>
-                        </div>
-                    </div>
-
-                    <div class="chapter-line">
-                        <div class="chapter-number">3</div>
-                        <div class="chapter-title">
-                            <h5>Flying Blind vs. Daily Scorecards</h5>
-                            <p>Differentiating cash vs. accrual accounting in home service trades.</p>
-                        </div>
-                    </div>
-
-                    <div class="chapter-line">
-                        <div class="chapter-number">4</div>
-                        <div class="chapter-title">
-                            <h5>The Path to CEO</h5>
-                            <p>A step-by-step framework to reclaim 3 hours a day from office admin.</p>
-                        </div>
+                    <div class="booklet-download-cta">
+                        <p>Join 2,400+ trade business owners who've downloaded this guide to grow smarter, not harder.</p>
+                        <a href="#" class="lp-btn-primary" style="font-size:0.8rem; padding:10px 24px; text-decoration:none;">Get Your Free Copy →</a>
                     </div>
                 </div>
             </div>
